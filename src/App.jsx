@@ -11,14 +11,14 @@ import BurgerNavigation from "./components/BurgerNavigation";
 function App() {
   return (
     <>
-      <div className="dark:bg-slate-700 transition duration-300 ease-in-out">
+      <div className="dark:bg-slate-900 bg-slate-50 transition duration-300 ease-in-out">
         <div className="fixed top-20 xl:top-5 right-5 z-10">
           <ToggleDarkMode />
         </div>
 
         <MobileDrawer />
 
-        <div className="block xl:hidden sticky top-0 bg-white shadow-md z-10 dark:bg-slate-700 transition duration-300 ease-in-out">
+        <div className="block xl:hidden sticky top-0 bg-white shadow-md z-10 dark:bg-slate-900 transition duration-300 ease-in-out">
           <div className="container px-3 md:px-10 mx-auto">
             <div className="flex pt-3 pb-3 items-center">
               <div className="w-1/2">

@@ -24,118 +24,154 @@ export const social = [
 ]
 
 import {
-    htmlIcon,
-    cssIcon,
-    jsIcon,
-    bootstrapIcon,
-    tailwindIcon,
-    phpIcon,
-    laravelIcon,
-    mysqlIcon,
-    mongodbIcon,
-    jqueryIcon,
-    vueIcon,
-    reactIcon,
-    nodeIcon,
-    wordpressIcon,
-    shopifyIcon,
-    githubIcon,
-    dockerIcon,
-    adobeIcon,
+    html,
+    css,
+    javascript,
+    bootstrap,
+    tailwind,
+    php,
+    laravel,
+    mysql,
+    mongodb,
+    jquery,
+    vue,
+    react,
+    node,
+    wordpress,
+    shopify,
+    github,
+    docker,
+    adobe,
     redis,
     postman,
-    nutracraft,
-    marciMetzger,
-    mhc,
-    stickmanwealth,
-    lisaSherman,
-    bhSellersAdvocate
+    figma
 } from '../assets'
 
 export const skills = [
     {
         title: "html",
-        icon: htmlIcon
+        link: "#",
+        icon: html
     },
     {
         title: "css",
-        icon: cssIcon,
+        link: "#",
+        icon: css
     },
     {
         title: "javascript",
-        icon: jsIcon,
+        link: "#",
+        icon: javascript
     },
     {
         title: "bootstrap",
-        icon: bootstrapIcon,
+        link: "#",
+        icon: bootstrap
     },
     {
         title: "tailwind",
-        icon: tailwindIcon,
+        link: "#",
+        icon: tailwind
     },
     {
         title: "php",
-        icon: phpIcon,
+        link: "#",
+        icon: php
     },
     {
         title: "laravel",
-        icon: laravelIcon,
+        link: "#",
+        icon: laravel
     },
     {
         title: "mysql",
-        icon: mysqlIcon,
+        link: "#",
+        icon: mysql
     },
     {
         title: "mongodb",
-        icon: mongodbIcon,
+        link: "#",
+        icon: mongodb
     },
     {
         title: "jquery",
-        icon: jqueryIcon,
+        link: "#",
+        icon: jquery
     },
     {
         title: "redis",
+        link: "#",
         icon: redis
     },
     {
         title: "postman",
+        link: "#",
         icon: postman
     },
     {
         title: "vue",
-        icon: vueIcon,
+        link: "#",
+        icon: vue
     },
     {
         title: "react",
-        icon: reactIcon,
+        link: "#",
+        icon: react
     },
     {
         title: "node",
-        icon: nodeIcon,
+        link: "#",
+        icon: node
     },
     {
         title: "wordpress",
-        icon: wordpressIcon,
+        link: "#",
+        icon: wordpress
     },
     {
         title: "shopify",
-        icon: shopifyIcon,
+        link: "#",
+        icon: shopify
     },
     {
         title: "github",
-        icon: githubIcon,
+        link: "#",
+        icon: github,
     },
     {
         title: "docker",
-        icon: dockerIcon
+        link: "#",
+        icon: docker
     },
     {
         title: "adobe",
-        icon: adobeIcon
+        link: "#",
+        icon: adobe
+    },
+    {
+        title: "figma",
+        link: "#",
+        icon: figma
     }
 ]
 
 export const experiences = [
+    {
+        date: "JUN 2025 - Present",
+        company: "Agility Outsourcing - (Full-Time)",
+        link: "#",
+        position: "Wordpress - Developer",
+        description: "Lorem",
+        technologies: ['wordpress']
+    },
+    {
+        date: "JUN 2025 - Present",
+        company: "Ignition Consulting - (Part-Time)",
+        link: "#",
+        position: "Shopify / Wordpress - Developer",
+        description: "Lorem",
+        technologies: ['shopify', 'wordpress', 'react', 'adobe', 'figma']
+    },
     {
         date: "MAY 2024 - JAN 2025",
         company: "YEWS - Your Easy Web Solutions",
@@ -145,7 +181,7 @@ export const experiences = [
         technologies: ['wordpress', 'shopify', 'jquery', 'adobe']
     },
     {
-        date: "MAY 2023 - MAY 2025",
+        date: "MAY 2023 - JUN 2025",
         company: "PPD - ThermoFisher Scientific",
         link: "#",
         position: "Business Technology Developer",
@@ -169,15 +205,22 @@ export const experiences = [
         technologies: ['wordpress', 'shopify', 'jquery']
     }
 ]
-
 import {
+    nutracraft,
     tgsHub,
     coffsCityLockmart,
     karrathaLocksmith,
+    municipalityOfToboso,
     bus4x4,
     perfectFloors,
-    fastTrackHomeLoans
+    fastTrackHomeLoans,
+    marciMetzger,
+    mhc,
+    stickmanwealth,
+    lisaSherman,
+    bhSellersAdvocate
 } from '../assets'
+
 import { icon } from '@fortawesome/fontawesome-svg-core'
 
 export const projects = [
@@ -187,60 +230,70 @@ export const projects = [
             {
                 title: "Talk Global Study",
                 link: "https://talkglobalstudy.com",
+                category: "ACF, Custom Theme - HTML/CSS/JS",
                 featured_image: tgsHub,
                 description: "Fully custom Wordpress website from scratch and run from a REST API of its functionality. Speak privately online or in person with universities, colleges and government organisations from around the world who will answer all your questions."
             },
             {
                 title: "Multihull Central",
                 link: "https://mhc.netstripes.au/",
+                category: "ACF, Custom Theme - HTML/CSS/JS",
                 featured_image: mhc,
                 description: "Custom website from scratch built in wordpress with the help of ACF to showcase content. Main products was selling yachts and showcasing events."
             },
             {
                 title: "Stickman Weatlh",
                 link: "https://www.stickmanwealth.com.au/",
+                category: "ACF, Custom Theme - HTML/CSS/JS",
                 featured_image: stickmanwealth,
                 description: "Custom website built in wordpress with the help of ACF to showcase content. Offers Financial Planning and Mortgage Broking services for people."
             },
             {
                 title: "Bus 4x4",
                 link: "https://www.bus4x4.com.au/",
+                category: "ACF, Avada, Custom HTML/CSS/JS",
                 featured_image: bus4x4,
                 description: "Bus 4×4 are experts in converting 2WD Toyota HiAce and Toyota Coasters into go-anywhere 4WDs, with professionally engineered AWD Conversion Kits under Second Stage Manufacturing."
             },
             {
                 title: "Perfect Floors",
                 link: "https://perfectfloors.com.au/",
+                category: "ACF, Avada, Custom HTML/CSS/JS",
                 featured_image: perfectFloors,
                 description: "Ecommerce website showcasing interior design services. Selecting the right flooring for your home is a critical decision that can significantly impact the look, feel, and functionality of your living spaces."
             },
             {
                 title: "BH Sellers Advocate",
                 link: "https://bhsellersadvocate.com.au/",
+                category: "ACF, Custom Theme - HTML/CSS/JS",
                 featured_image: bhSellersAdvocate,
                 description: "BH Sellers Advocate is built in wordpress mainly selling properties, using ACF this will able to showcase the content of the website."
             },
             {
                 title: "Coffs City Lockmart",
                 link: "https://www.coffscitylockmart.com.au/",
+                category: "ACF, Custom Theme - HTML/CSS/JS",
                 featured_image: coffsCityLockmart,
                 description: "Trusted Locksmith Services for 40+ Years Securing Homes, Schools, and Councils in NSW Mid North Coast with quality locks, safes, and security systems"
             },
             {
                 title: "Karratha Lock Service",
                 link: "https://karrathalockservice.com/",
+                category: "ACF, Custom Theme - HTML/CSS/JS",
                 featured_image: karrathaLocksmith,
                 description: "Trusted Karratha Locksmith for Homes, Businesses, and Vehicles with 20 years of experience serving the Pilbara Region with security solutions, superior workmanship and swift service"
             },
             {
                 title: "Fast Track Home Loans",
                 link: "https://fasttrackhomeloans.com.au/",
+                category: "ACF, Custom Theme - HTML/CSS/JS",
                 featured_image: fastTrackHomeLoans,
                 description: "Helps Professionals, Families and Businesses build wealth through property. Our experts will structure your finances in maximising your borrowing and investments."
             },
             {
                 title: "Lisa Sherman - Realtor",
                 link: "https://lisashermanrealty.com/",
+                category: "ACF, Elementor",
                 featured_image: lisaSherman,
                 description: "Real Estate website built in wordpress using elementor and showcasing property from MLS with the help of estatik plugin."
             },
@@ -252,6 +305,7 @@ export const projects = [
             {
                 title: "Nutracraft",
                 link: "https://nutracraft.com",
+                category: "",
                 featured_image: nutracraft,
                 description: "E-Commerce website with food supplement products. Customize liquid templates and support in email marketing."
             },
@@ -263,6 +317,7 @@ export const projects = [
             {
                 title: "Marci Metzger - Real Estate",
                 link: "https://real-estate-flame-two.vercel.app/",
+                category: "ACF, Custom Theme - HTML/CSS/JS",
                 featured_image: marciMetzger,
                 description: "Real Estate website that built using HTML, CSS and JS only."
             },

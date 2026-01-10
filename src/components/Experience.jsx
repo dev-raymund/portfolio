@@ -9,7 +9,15 @@ const Experience = ({ data }) => {
       {data.map((item, index) => (
         <div
           key={index}
-          className="flex mb-10 rounded-lg p-5 shadow-custom-1 shadow-zinc-400 transition duration-150 ease-in-out flex-col"
+          className="
+            flex flex-col mb-10 rounded-md px-7 py-6
+            bg-white/70 dark:bg-slate-900/60
+            border border-slate-200 dark:border-slate-700
+            hover:border-sky-500/60
+            hover:-translate-y-1
+            hover:ring-1 hover:ring-sky-500/30
+            transition-all duration-300 ease-out
+          "
         >
           <div className="w-full">
             <a
@@ -17,7 +25,7 @@ const Experience = ({ data }) => {
               target="_blank"
               className="flex items-center gap-2 mb-1 group"
             >
-              <h4 className="text-xl text-sky-500 font-bold group-hover:underline">
+              <h4 className="text-lg text-sky-500 font-semibold group-hover:underline">
                 {item.company}
               </h4>
               <FontAwesomeIcon
@@ -26,13 +34,17 @@ const Experience = ({ data }) => {
               />
             </a>
 
-            <h5 className="text-xl font-bold mb-1 dark:text-white">
+            <h5 className="text-lg font-semibold text-slate-800 dark:text-slate-200 mb-1">
               {item.position}
             </h5>
 
-            <h4 className="text-lg mb-2 dark:text-white">{item.date}</h4>
+            <h4 className="text-sm text-slate-500 dark:text-slate-400 mb-3">
+              {item.date}
+            </h4>
 
-            <p className="text-lg dark:text-white">{item.description}</p>
+            <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+              {item.description}
+            </p>
 
             <ul className="flex flex-wrap gap-3 mt-5">
               {item.technologies.map((technology, index) => {
@@ -41,12 +53,21 @@ const Experience = ({ data }) => {
                 );
 
                 return (
-                  <li key={index} className="bg-white rounded-md p-2">
+                  <li
+                    key={index}
+                    className="
+                      bg-slate-100 dark:bg-slate-300
+                      border border-slate-200 dark:border-slate-700
+                      rounded-lg p-2
+                      hover:border-sky-500/60
+                      transition
+                    "
+                  >
                     <a href="#">
                       <img
                         src={matchSkill.icon}
                         alt={matchSkill.title}
-                        className="w-10 h-10 transition duration-150 ease-in-out hover:scale-105"
+                        className="w-8 h-8 opacity-80 hover:opacity-100 transition"
                       />
                     </a>
                   </li>

@@ -1,45 +1,47 @@
-import htmlIcon from '../assets/svg/html-5.svg'
-import cssIcon from '../assets/svg/css-3.svg'
-import jsIcon from '../assets/svg/javascript.svg'
-import bootstrapIcon from '../assets/svg/bootstrap.svg'
-import tailwindIcon from '../assets/svg/tailwind.svg'
-import phpIcon from '../assets/svg/php.svg'
-import laravelIcon from '../assets/svg/laravel.svg'
-import mysqlIcon from '../assets/svg/mysql.svg'
-import mongodbIcon from '../assets/svg/mongodb.svg'
-import jqueryIcon from '../assets/svg/jquery.svg'
-import vueIcon from '../assets/svg/vue.svg'
-import reactIcon from '../assets/svg/react.svg'
-import nodeIcon from '../assets/svg/node.svg'
-import wordpressIcon from '../assets/svg/wordpress.svg'
-import shopifyIcon from '../assets/svg/shopify.svg'
-import githubIcon from '../assets/svg/github.svg'
-import dockerIcon from '../assets/svg/docker.svg'
-import adobeIcon from '../assets/svg/adobe.svg'
+import html from '../assets/svg/html-5.svg'
+import css from '../assets/svg/css-3.svg'
+import javascript from '../assets/svg/javascript.svg'
+import bootstrap from '../assets/svg/bootstrap.svg'
+import tailwind from '../assets/svg/tailwind.svg'
+import php from '../assets/svg/php.svg'
+import laravel from '../assets/svg/laravel.svg'
+import mysql from '../assets/svg/mysql.svg'
+import mongodb from '../assets/svg/mongodb.svg'
+import jquery from '../assets/svg/jquery.svg'
+import vue from '../assets/svg/vue.svg'
+import react from '../assets/svg/react.svg'
+import node from '../assets/svg/node.svg'
+import wordpress from '../assets/svg/wordpress.svg'
+import shopify from '../assets/svg/shopify.svg'
+import github from '../assets/svg/github.svg'
+import docker from '../assets/svg/docker.svg'
+import adobe from '../assets/svg/adobe.svg'
 import redis from '../assets/svg/redis.svg'
 import postman from '../assets/svg/postman.svg'
+import figma from '../assets/svg/figma.svg'
 
 export {
-    htmlIcon,
-    cssIcon,
-    jsIcon,
-    bootstrapIcon,
-    tailwindIcon,
-    phpIcon,
-    laravelIcon,
-    mysqlIcon,
-    mongodbIcon,
-    jqueryIcon,
-    vueIcon,
-    reactIcon,
-    nodeIcon,
-    wordpressIcon,
-    shopifyIcon,
-    githubIcon,
-    dockerIcon,
-    adobeIcon,
+    html,
+    css,
+    javascript,
+    bootstrap,
+    tailwind,
+    php,
+    laravel,
+    mysql,
+    mongodb,
+    jquery,
+    vue,
+    react,
+    node,
+    wordpress,
+    shopify,
+    github,
+    docker,
+    adobe,
     redis,
-    postman
+    postman,
+    figma
 }
 
 import nutracraft from "../assets/projects/nutracraft.png";

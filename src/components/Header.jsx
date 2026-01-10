@@ -28,7 +28,7 @@ const Header = () => {
       <a
         href={pdf}
         target="_blank"
-        className="w-fit font-sans text-sky-500 p-3 border-x border-y border-sky-500 hover:text-white hover:border-sky-500 hover:bg-sky-500 transition duration-150 ease-in-out"
+        className="w-fit font-sans text-white hover:text-sky-500 hover:bg-transparent p-3 rounded-md border-x border-y border-sky-500 bg-sky-500 transition duration-150 ease-in-out"
       >
         Download CV <FontAwesomeIcon icon={faDownload} />
       </a>
