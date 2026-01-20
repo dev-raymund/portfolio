@@ -161,7 +161,7 @@ export const experiences = [
         company: "Agility Outsourcing - (Full-Time)",
         link: "#",
         position: "Wordpress - Developer",
-        description: "Lorem",
+        description: "",
         technologies: ['wordpress']
     },
     {
@@ -169,7 +169,7 @@ export const experiences = [
         company: "Ignition Consulting - (Part-Time)",
         link: "#",
         position: "Shopify / Wordpress - Developer",
-        description: "Lorem",
+        description: "Professional website design and development services. Create tailored, future-proof websites that increase sales and attract customers.",
         technologies: ['shopify', 'wordpress', 'react', 'adobe', 'figma']
     },
     {
