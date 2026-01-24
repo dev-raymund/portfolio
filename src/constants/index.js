@@ -189,7 +189,7 @@ export const experiences = [
         technologies: ['react', 'jquery', 'php', 'laravel', 'docker']
     },
     {
-        date: "NOV 2022 - MAY 2023",
+        date: "NOV 2021 - MAY 2023",
         company: "Setup Phils. Inc.",
         link: "#",
         position: "Web Developer / Software Developer",
