@@ -210,7 +210,6 @@ import {
     tgsHub,
     coffsCityLockmart,
     karrathaLocksmith,
-    municipalityOfToboso,
     bus4x4,
     perfectFloors,
     fastTrackHomeLoans,
@@ -218,7 +217,12 @@ import {
     mhc,
     stickmanwealth,
     lisaSherman,
-    bhSellersAdvocate
+    bhSellersAdvocate,
+    weAreIgnition,
+    missionEstate,
+    leaftBlade,
+    kalingaHouse,
+    offRouteAdventures
 } from '../assets'
 
 import { icon } from '@fortawesome/fontawesome-svg-core'
@@ -302,6 +306,41 @@ export const projects = [
     {
         category: "shopify",
         project_list: [
+            {
+                title: "Ignition Consulting",
+                link: "https://weareignition.co.nz/",
+                category: "",
+                featured_image: weAreIgnition,
+                description: "IGNITION works at the intersection of sales and marketing, unlocking growth for ambitious brands."
+            },
+            {
+                title: "Mission Estate",
+                link: "https://missionestate.co.nz/",
+                category: "",
+                featured_image: missionEstate,
+                description: "From sunlit terrace lunches to intimate evening dinners, Mission Estate Restaurant is one of Napier’s premier dining destinations. Enjoy inspired seasonal menus, award-winning wines, and warm hospitality – all set within the timeless charm of New Zealand’s oldest winery."
+            },
+            {
+                title: "Leaft Blade",
+                link: "https://www.leaftblade.com/",
+                category: "",
+                featured_image: leaftBlade,
+                description: "Working with Leaft just feels right. Their vision for the future of food doesn't just inspire, it reflects everything we believe in. We farm with purpose. Sustainably. Responsibly. And when a company like Leaft shares that vision, the connection is effortless."
+            },
+            {
+                title: "Off Route Adventures",
+                link: "https://offrouteadventures.com/",
+                category: "",
+                featured_image: offRouteAdventures,
+                description: ""
+            },
+            {
+                title: "Kalinga House",
+                link: "https://kalingahouse.org/",
+                category: "",
+                featured_image: kalingaHouse,
+                description: "Kalinga House is an interim home of refuge, learning, and restoration for vulnerable girls and youth in Siargao Island."
+            },
             {
                 title: "Nutracraft",
                 link: "https://nutracraft.com",

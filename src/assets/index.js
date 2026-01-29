@@ -57,6 +57,11 @@ import mhc from "../assets/projects/mhc.png"
 import stickmanwealth from "../assets/projects/stickmanwealth.png"
 import lisaSherman from "../assets/projects/lisasherman.png"
 import bhSellersAdvocate from "../assets/projects/bh-sellers-advocate.png"
+import weAreIgnition from "../assets/projects/weareignition.png"
+import missionEstate from "../assets/projects/missionestate.png"
+import leaftBlade from "../assets/projects/leaftblade.png"
+import kalingaHouse from "../assets/projects/kalingahouse.png"
+import offRouteAdventures from "../assets/projects/offrouteadventures.png"
 
 export {
     nutracraft,
@@ -71,5 +76,10 @@ export {
     mhc,
     stickmanwealth,
     lisaSherman,
-    bhSellersAdvocate
+    bhSellersAdvocate,
+    weAreIgnition,
+    missionEstate,
+    leaftBlade,
+    kalingaHouse,
+    offRouteAdventures
 }
