@@ -156,14 +156,14 @@ export const skills = [
 ]
 
 export const experiences = [
-    {
-        date: "JUN 2025 - Present",
-        company: "Agility Outsourcing - (Full-Time)",
-        link: "#",
-        position: "Wordpress - Developer",
-        description: "",
-        technologies: ['wordpress']
-    },
+    // {
+    //     date: "JUN 2025 - Present",
+    //     company: "Agility Outsourcing - (Full-Time)",
+    //     link: "#",
+    //     position: "Wordpress - Developer",
+    //     description: "",
+    //     technologies: ['wordpress']
+    // },
     {
         date: "JUN 2025 - Present",
         company: "Ignition Consulting - (Part-Time)",
