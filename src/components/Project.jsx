@@ -1,7 +1,22 @@
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 const Project = ({ data }) => {
+  const [visibleProjects, setVisibleProjects] = useState(
+    data.reduce((acc, item) => {
+      acc[item.category] = 3;
+      return acc;
+    }, {})
+  );
+
+  const handleLoadMore = (category) => {
+    setVisibleProjects((prev) => ({
+      ...prev,
+      [category]: prev[category] + 3,
+    }));
+  };
+
   return (
     <>
       {data.map((item, index) => (
@@ -11,7 +26,7 @@ const Project = ({ data }) => {
           </h3>
 
           {item.project_list.length > 0 ? (
-            item.project_list.slice(0, 3).map((project, index) => (
+            item.project_list.slice(0, visibleProjects[item.category]).map((project, index) => (
               <div
                 key={index}
                 className="
@@ -87,9 +102,12 @@ const Project = ({ data }) => {
             </p>
           )}
 
-          {item.project_list.length > 3 && (
+          {item.project_list.length > 3 && visibleProjects[item.category] < item.project_list.length && (
             <div className="">
-              <button className="w-fit font-sans text-white hover:text-sky-500 hover:bg-transparent p-3 rounded-md border-x border-y border-sky-500 bg-sky-500 transition duration-150 ease-in-out">
+              <button 
+                onClick={() => handleLoadMore(item.category)}
+                className="w-fit font-sans text-white hover:text-sky-500 hover:bg-transparent p-3 rounded-md border-x border-y border-sky-500 bg-sky-500 transition duration-150 ease-in-out"
+              >
                 Load more {item.category} projects →
               </button>
             </div>

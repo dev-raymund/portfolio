@@ -236,7 +236,7 @@ export const projects = [
             },
             {
                 title: "Multihull Central",
-                link: "https://mhc.netstripes.au/",
+                link: "https://www.multihullcentral.com/",
                 category: "ACF, Custom Theme - HTML/CSS/JS",
                 featured_image: mhc,
                 description: "Custom website from scratch built in wordpress with the help of ACF to showcase content. Main products was selling yachts and showcasing events."
