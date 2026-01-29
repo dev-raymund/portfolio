@@ -5,8 +5,8 @@ import { social } from '../constants'
 const Social = () => {
 
     return (
-        <nav className="pt-12 pb-12">
-            <ul className="flex gap-10 justify-center lg:justify-start">
+        <nav className="pt-4">
+            <ul className="flex gap-6 justify-start">
                 {social.map((item, index) => 
                     <li key={index}>
                         <a href={item.link} target={item.target}>

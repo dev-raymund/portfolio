@@ -1,13 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-    --font-rajdhani: "Rajdhani", sans-serif;
+  --font-rajdhani: "Rajdhani", sans-serif;
+  --font-dm-sans: "DM Sans", sans-serif;
 }
 
 * {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+/* Smooth section transitions */
+section {
+  scroll-margin-top: 5rem;
 }

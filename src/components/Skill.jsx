@@ -1,28 +1,32 @@
 const Skill = ({ data }) => {
   return (
-    <ul className="flex flex-wrap gap-3 justify-center lg:justify-start">
+    <ul className="flex flex-wrap gap-4 justify-start">
       {data.map((item, index) => (
-        <li key={index}>
-          <a href={item.link} className="group">
+        <li
+          key={index}
+          className="animate-fade-in-up opacity-0"
+          style={{ animationDelay: `${Math.min(index * 30, 600)}ms`, animationFillMode: "forwards" }}
+        >
+          <a href={item.link} className="group block">
             <div
               className="
-                w-20 h-20
+                w-16 h-16 sm:w-20 sm:h-20
                 flex items-center justify-center
-                rounded-md
-                dark:bg-slate-300
-                bg-slate-100 dark:bg-slate-900/60
-                border border-slate-200 dark:border-slate-700
-                group-hover:border-sky-500/60
-                group-hover:-translate-y-1
-                group-hover:ring-1 group-hover:ring-sky-500/30
-                transition-all duration-300 ease-out
+                rounded-xl
+                bg-white dark:bg-slate-800/60
+                border border-slate-200 dark:border-slate-600
+                shadow-sm
+                group-hover:border-sky-500/50
+                group-hover:shadow-md group-hover:shadow-sky-500/10
+                group-hover:-translate-y-0.5
+                transition-all duration-200 ease-out
               "
             >
               <img
                 src={item.icon}
                 alt={item.title}
                 className="
-                  w-10 h-10
+                  w-8 h-8 sm:w-10 sm:h-10
                   opacity-80
                   group-hover:opacity-100
                   transition

@@ -156,37 +156,13 @@ export const skills = [
 ]
 
 export const experiences = [
-    // {
-    //     date: "JUN 2025 - Present",
-    //     company: "Agility Outsourcing - (Full-Time)",
-    //     link: "#",
-    //     position: "Wordpress - Developer",
-    //     description: "",
-    //     technologies: ['wordpress']
-    // },
     {
-        date: "JUN 2025 - Present",
-        company: "Ignition Consulting - (Part-Time)",
+        date: "NOV 2018 - JUN 2019",
+        company: "Night Birds Solution",
         link: "#",
-        position: "Shopify / Wordpress - Developer",
-        description: "Professional website design and development services. Create tailored, future-proof websites that increase sales and attract customers.",
-        technologies: ['shopify', 'wordpress', 'react', 'adobe', 'figma']
-    },
-    {
-        date: "MAY 2024 - JAN 2025",
-        company: "YEWS - Your Easy Web Solutions",
-        link: "#",
-        position: "Web Developer / Web Designer",
-        description: "YEWS is a leading marketing agency in Brisbane, Melbourne and Gold Coast. Worked with some of Australia’s leading business owners in helping them grow their businesses through our marketing and technical experience.",
-        technologies: ['wordpress', 'shopify', 'jquery', 'adobe']
-    },
-    {
-        date: "MAY 2023 - JUN 2025",
-        company: "PPD - ThermoFisher Scientific",
-        link: "#",
-        position: "Business Technology Developer",
-        description: "PPD is now part of Thermo Fisher Scientific, the world leader in serving science. Together, Thermo Fisher and PPD are creating a unique opportunity to advance their shared pursuit to enable customers to make the world healthier by accelerating the development of new medicines.",
-        technologies: ['react', 'jquery', 'php', 'laravel', 'docker']
+        position: "Web Developer",
+        description: "A company based in Bacolod, Philippines that provides a quality and responsive design built with Wordpress or an E-Commerce store from a Shopify. Creating landing pages that built with ClickFunnels",
+        technologies: ['wordpress', 'shopify', 'jquery']
     },
     {
         date: "NOV 2021 - MAY 2023",
@@ -197,12 +173,28 @@ export const experiences = [
         technologies: ['wordpress', 'react', 'vue', 'jquery', 'php', 'laravel', 'redis', 'postman']
     },
     {
-        date: "NOV 2018 - JUN 2019",
-        company: "Night Birds Solution",
+        date: "MAY 2023 - JUN 2025",
+        company: "PPD - ThermoFisher Scientific",
         link: "#",
-        position: "Web Developer",
-        description: "A company based in Bacolod, Philippines that provides a quality and responsive design built with Wordpress or an E-Commerce store from a Shopify. Creating landing pages that built with ClickFunnels",
-        technologies: ['wordpress', 'shopify', 'jquery']
+        position: "Business Technology Developer",
+        description: "PPD is now part of Thermo Fisher Scientific, the world leader in serving science. Together, Thermo Fisher and PPD are creating a unique opportunity to advance their shared pursuit to enable customers to make the world healthier by accelerating the development of new medicines.",
+        technologies: ['react', 'jquery', 'php', 'laravel', 'docker']
+    },
+    {
+        date: "MAY 2024 - JAN 2025",
+        company: "YEWS - Your Easy Web Solutions",
+        link: "#",
+        position: "Web Developer / Web Designer",
+        description: "YEWS is a leading marketing agency in Brisbane, Melbourne and Gold Coast. Worked with some of Australia’s leading business owners in helping them grow their businesses through our marketing and technical experience.",
+        technologies: ['wordpress', 'shopify', 'jquery', 'adobe']
+    },
+    {
+        date: "JUN 2025 - Present",
+        company: "Ignition Consulting - (Part-Time)",
+        link: "#",
+        position: "Shopify / Wordpress - Developer",
+        description: "Professional website design and development services. Create tailored, future-proof websites that increase sales and attract customers.",
+        technologies: ['shopify', 'wordpress', 'react', 'adobe', 'figma']
     }
 ]
 import {
