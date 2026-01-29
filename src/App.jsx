@@ -8,7 +8,7 @@ import Navigation from "./components/Navigation";
 import MobileDrawer from "./components/MobileDrawer";
 import BurgerNavigation from "./components/BurgerNavigation";
 
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   return (
