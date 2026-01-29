@@ -17,9 +17,13 @@ const Header = () => {
         Raymund Hermoso
       </h1>
 
-      <h2 className="font-sans font-bold text-zinc-900 text-4xl mt-3 dark:text-white">
-        Web Developer
+      <h2 className="font-sans font-bold text-zinc-900 text-4xl mt-3 mb-2 dark:text-white">
+        Full-Stack Web Developer
       </h2>
+
+      <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
+        Transforming Ideas into High-Impact Solutions
+      </p>
 
       <div className="pt-12 pb-12">
         <Navigation className="flex flex-col gap-2.5" />
@@ -28,7 +32,7 @@ const Header = () => {
       <a
         href={pdf}
         target="_blank"
-        className="w-fit font-sans text-white hover:text-sky-500 hover:bg-transparent p-3 rounded-md border-x border-y border-sky-500 bg-sky-500 transition duration-150 ease-in-out"
+        className="w-fit font-sans text-white hover:text-sky-500 hover:bg-transparent p-3 rounded-md border border-sky-500 bg-sky-500 transition duration-150 ease-in-out"
       >
         Download CV <FontAwesomeIcon icon={faDownload} />
       </a>

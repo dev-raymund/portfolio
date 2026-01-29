@@ -8,6 +8,8 @@ import Navigation from "./components/Navigation";
 import MobileDrawer from "./components/MobileDrawer";
 import BurgerNavigation from "./components/BurgerNavigation";
 
+import { Analytics } from "@vercel/analytics/next"
+
 function App() {
   return (
     <>
@@ -46,6 +48,8 @@ function App() {
           </div>
         </div>
       </div>
+
+      <Analytics />
     </>
   );
 }
