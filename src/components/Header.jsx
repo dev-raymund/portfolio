@@ -2,10 +2,8 @@ import { useState } from "react";
 import Navigation from "./Navigation";
 import Logo from "./Logo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import ToggleDarkMode from "./ToggleDarkMode";
-import pdf from "../assets/files/RaymundHermosoCV.pdf";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -27,12 +25,10 @@ const Header = () => {
           {/* Right: CTA + dark mode (desktop) */}
           <div className="hidden md:flex items-center gap-4">
             <a
-              href={pdf}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:raymundhermoso.dev@gmail.com?subject=Project%20inquiry"
               className="text-sm font-medium text-white bg-sky-500 hover:bg-sky-600 dark:bg-sky-600 dark:hover:bg-sky-500 px-4 py-2 rounded-lg transition-colors"
             >
-              Download CV <FontAwesomeIcon icon={faDownload} className="ml-1 w-3.5 h-3.5" />
+              Get a quote <FontAwesomeIcon icon={faEnvelope} className="ml-1 w-3.5 h-3.5" />
             </a>
             <ToggleDarkMode />
           </div>
@@ -61,13 +57,11 @@ const Header = () => {
               onNavigate={closeMobileMenu}
             />
             <a
-              href={pdf}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:raymundhermoso.dev@gmail.com?subject=Project%20inquiry"
               onClick={closeMobileMenu}
               className="inline-flex items-center gap-2 text-sm font-medium text-white bg-sky-500 hover:bg-sky-600 px-4 py-2.5 rounded-lg transition-colors w-fit"
             >
-              Download CV <FontAwesomeIcon icon={faDownload} className="w-3.5 h-3.5" />
+              Get a quote <FontAwesomeIcon icon={faEnvelope} className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>
