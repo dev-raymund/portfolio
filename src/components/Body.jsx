@@ -3,6 +3,7 @@ import Skill from "./Skill";
 import Experience from "./Experience";
 import Project from "./Project";
 import Hero from "./Hero";
+import Services from "./Services";
 
 const Section = ({ id, title, children, className = "" }) => (
   <section
@@ -51,6 +52,7 @@ const Body = () => {
   return (
     <>
       <Hero />
+      <Services />
       <AboutSection />
       <Section id="skills" title="Skills">
         <Skill data={skills} />
