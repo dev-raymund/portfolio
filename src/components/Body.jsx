@@ -1,4 +1,4 @@
-import { experiences, skills, projects } from "../constants/index";
+import { experiences, skills } from "../constants/index";
 import Skill from "./Skill";
 import Experience from "./Experience";
 import Project from "./Project";
@@ -60,9 +60,7 @@ const Body = () => {
       <Section id="experiences" title="Experience">
         <Experience data={experiences} />
       </Section>
-      <Section id="projects" title="Projects">
-        <Project data={projects} />
-      </Section>
+      <Project />
     </>
   );
 };
