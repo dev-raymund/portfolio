@@ -1,9 +1,8 @@
-import { experiences, skills } from "../constants/index";
+import { experiences, skills, projects } from "../constants/index";
 import Skill from "./Skill";
 import Experience from "./Experience";
 import Project from "./Project";
 import Hero from "./Hero";
-import Services from "./Services";
 
 const Section = ({ id, title, children, className = "" }) => (
   <section
@@ -52,7 +51,6 @@ const Body = () => {
   return (
     <>
       <Hero />
-      <Services />
       <AboutSection />
       <Section id="skills" title="Skills">
         <Skill data={skills} />
@@ -60,7 +58,9 @@ const Body = () => {
       <Section id="experiences" title="Experience">
         <Experience data={experiences} />
       </Section>
-      <Project />
+      <Section id="projects" title="Projects">
+        <Project data={projects} />
+      </Section>
     </>
   );
 };

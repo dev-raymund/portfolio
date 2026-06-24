@@ -362,59 +362,6 @@ export const projects = [
     }
 ]
 
-export const homepageProjects = [
-  // Web design
-  {
-    title: "Fast Track Home Loans",
-    link: "https://fasttrackhomeloans.com.au/",
-    category: "Web design",
-    featured_image: fastTrackHomeLoans,
-    description: "WordPress site for a mortgage brokerage. Lead capture, loan calculators, and case studies — helped grow qualified leads by 35%.",
-    stack: "WordPress"
-  },
-  {
-    title: "Stickman Wealth",
-    link: "https://www.stickmanwealth.com.au/",
-    category: "Web design",
-    featured_image: stickmanwealth,
-    description: "WordPress site for an Australian wealth management firm. Custom theme built for trust-building and qualified lead capture.",
-    stack: "WordPress"
-  },
-  {
-    title: "Coffs City Lockmart",
-    link: "https://www.coffscitylockmart.com.au/",
-    category: "Web design",
-    featured_image: coffsCityLockmart,
-    description: "WordPress site for a 40-year local locksmith. Service showcases, emergency contact flow, and 24/7 quote request automation.",
-    stack: "WordPress"
-  },
-  // E-commerce
-  {
-    title: "Multihull Central",
-    link: "https://www.multihullcentral.com/",
-    category: "E-commerce",
-    featured_image: mhc,
-    description: "WordPress e-commerce platform for luxury yacht sales. Advanced product filtering, event management, and rich media galleries.",
-    stack: "WordPress"
-  },
-  {
-    title: "Mission Estate",
-    link: "https://missionestate.co.nz/",
-    category: "E-commerce",
-    featured_image: missionEstate,
-    description: "Shopify site for one of Napier's premier restaurants and New Zealand's oldest winery. Built around seasonal menus and brand storytelling.",
-    stack: "Shopify"
-  },
-  {
-    title: "Nutracraft",
-    link: "https://nutracraft.com",
-    category: "E-commerce",
-    featured_image: nutracraft,
-    description: "Shopify store for a food supplement brand. Custom Liquid templating and email marketing integration.",
-    stack: "Shopify"
-  },
-]
-
 export const navigation = [
     {
         id: 0,

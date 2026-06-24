@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faDownload, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Social from "./Social";
+import pdf from "../assets/files/RaymundHermosoCV.pdf";
 import profile from "../assets/raymund-hermoso-photo.png";
 
 const Hero = () => {
@@ -26,23 +27,25 @@ const Hero = () => {
               Raymund Hermoso
             </h1>
             <h2 className="text-xl sm:text-2xl text-slate-600 dark:text-slate-300 font-medium mb-6 animate-fade-in-up opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards]">
-              Independent web designer &amp; developer
+              Web Developer
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 max-w-xl mb-8 leading-relaxed animate-fade-in-up opacity-0 [animation-delay:250ms] [animation-fill-mode:forwards]">
-              I build WordPress and Shopify websites that solve a real problem for small businesses — not just sites that look good. 100+ sites shipped, working with clients worldwide.
+              Mostly WordPress and Shopify sites, themes, and the odd custom build. Here’s what I’ve been up to.
             </p>
             <div className="flex flex-wrap gap-4 mb-8 animate-fade-in-up opacity-0 [animation-delay:300ms] [animation-fill-mode:forwards]">
               <a
-                href="mailto:raymundhermoso.dev@gmail.com?subject=Project%20inquiry"
+                href={pdf}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-lg font-medium text-white bg-sky-500 hover:bg-sky-600 dark:bg-sky-600 dark:hover:bg-sky-500 transition-colors shadow-lg shadow-sky-500/25"
               >
-                Get a quote <FontAwesomeIcon icon={faEnvelope} className="w-4 h-4" />
+                Download CV <FontAwesomeIcon icon={faDownload} className="w-4 h-4" />
               </a>
               <a
                 href="#projects"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-lg font-medium text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-600 hover:border-sky-500 hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
               >
-                See recent work <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
+                See my work <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
               </a>
             </div>
             <div className="animate-fade-in-up opacity-0 [animation-delay:350ms] [animation-fill-mode:forwards]">
