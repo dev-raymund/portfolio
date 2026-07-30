@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Social from "./Social";
-import pdf from "../assets/files/RaymundHermosoCV.pdf";
+import pdf from "../assets/files/Raymund_Hermoso_CV.pdf";
 import profile from "../assets/raymund-hermoso-photo.png";
 
 const Hero = () => {
