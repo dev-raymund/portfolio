@@ -1,17 +1,46 @@
-import Header from "./components/Header";
-import Body from "./components/Body";
-import Footer from "./components/Footer";
+import { useEffect, useLayoutEffect } from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom'
+import Nav from './components/Nav'
+import ViewBubble from './components/ViewBubble'
+import Home from './pages/Home'
+import Work from './pages/Work'
+import { scrollToTarget, ScrollTrigger, startSmoothScroll, stopSmoothScroll } from './lib/motion'
 
-function App() {
+export default function App() {
+  const { pathname, hash } = useLocation()
+
+  useEffect(() => {
+    startSmoothScroll()
+    const refresh = () => ScrollTrigger.refresh()
+    window.addEventListener('load', refresh)
+    document.fonts?.ready.then(refresh)
+    return () => {
+      window.removeEventListener('load', refresh)
+      stopSmoothScroll()
+    }
+  }, [])
+
+  // New page: start at the top, or at the section named in the URL.
+  useLayoutEffect(() => {
+    if (!hash) scrollToTarget(0, { immediate: true })
+  }, [pathname, hash])
+
+  useEffect(() => {
+    if (!hash) return undefined
+    const id = setTimeout(() => scrollToTarget(hash, { immediate: false }), 150)
+    return () => clearTimeout(id)
+  }, [pathname, hash])
+
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300">
-      <Header />
-      <main>
-        <Body />
-      </main>
-      <Footer />
-    </div>
-  );
+    <>
+      <a className="skip" href="#main">Skip to content</a>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/work" element={<Work />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
+      <ViewBubble />
+    </>
+  )
 }
-
-export default App;

@@ -1,72 +1,88 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDownload, faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import Social from "./Social";
-import pdf from "../assets/files/Raymund_Hermoso_CV.pdf";
-import profile from "../assets/raymund-hermoso-photo.png";
+import { useLayoutEffect, useRef } from 'react'
+import Icon from './Icon'
+import Mosaic from './Mosaic'
+import NetworkCanvas from './NetworkCanvas'
+import { SplitChars } from './Split'
+import { profile } from '../data/profile'
+import { useScramble } from '../lib/useScramble'
+import { gsap, hasFinePointer, prefersReducedMotion, scrollToTarget } from '../lib/motion'
 
-const Hero = () => {
+export default function Hero() {
+  const root = useRef(null)
+  const roleRef = useRef(null)
+  useScramble(roleRef, profile.roles)
+
+  useLayoutEffect(() => {
+    if (prefersReducedMotion()) return undefined
+    let onMove = null
+    const ctx = gsap.context(() => {
+      const tiles = gsap.utils.toArray('.tile')
+      const intro = gsap.timeline({ defaults: { ease: 'expo.out' } })
+      intro.from('.net', { opacity: 0, duration: 2 }, 0)
+      tiles.forEach((t, i) => {
+        intro.from(t, {
+          x: gsap.utils.random(-150, 150), y: gsap.utils.random(-190, 190), rotation: gsap.utils.random(-14, 14),
+          scale: 0.6, opacity: 0, duration: 1.6,
+        }, 0.15 + i * 0.07)
+      })
+      intro
+        .from('.hello', { y: 16, opacity: 0, duration: 0.8 }, 0.3)
+        .from('.name .c', { yPercent: 118, duration: 1.2, stagger: 0.025 }, 0.4)
+        .from('.role, .intro, .actions', { y: 24, opacity: 0, duration: 0.9, stagger: 0.1, ease: 'power3.out' }, 0.9)
+        .from('.badge-open', { scale: 0, opacity: 0, duration: 0.8, ease: 'back.out(2.2)' }, 1.4)
+        .add(() => {
+          if (!hasFinePointer()) return
+          const q = tiles.map((t) => ({
+            x: gsap.quickTo(t, 'x', { duration: 1, ease: 'power3.out' }),
+            y: gsap.quickTo(t, 'y', { duration: 1, ease: 'power3.out' }),
+            d: gsap.utils.random(0.3, 1.2),
+          }))
+          onMove = (e) => {
+            const nx = e.clientX / window.innerWidth - 0.5
+            const ny = e.clientY / window.innerHeight - 0.5
+            q.forEach((o) => { o.x(nx * o.d * 20); o.y(ny * o.d * 20) })
+          }
+          window.addEventListener('pointermove', onMove)
+        })
+
+      // Scrolling away: tiles drift apart and the text eases up.
+      const away = { trigger: root.current, start: 'top top', end: 'bottom top', scrub: true }
+      tiles.forEach((t) => gsap.to(t, { yPercent: gsap.utils.random(-45, 25), ease: 'none', scrollTrigger: away }))
+      gsap.to('.hero-copy', { yPercent: -16, opacity: 0.2, ease: 'none', scrollTrigger: away })
+    }, root)
+
+    return () => {
+      if (onMove) window.removeEventListener('pointermove', onMove)
+      ctx.revert()
+    }
+  }, [])
+
+  const jump = (e, id) => {
+    e.preventDefault()
+    scrollToTarget(`#${id}`)
+  }
+
   return (
-    <section
-      id="about"
-      className="relative overflow-hidden bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-900/95 border-b border-slate-200/80 dark:border-slate-700/80"
-    >
-      <div
-        className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}
-      />
-      <div className="relative max-w-6xl mx-auto px-6 py-20 md:py-28 lg:py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Content on LEFT */}
-          <div className="lg:col-span-7 order-2 lg:order-1">
-            <p className="text-sm font-medium text-sky-500 dark:text-sky-400 uppercase tracking-wider mb-4 animate-fade-in opacity-0 [animation-delay:100ms] [animation-fill-mode:forwards]">
-              Hi, I'm
-            </p>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white tracking-tight mb-4 animate-fade-in-up opacity-0 [animation-delay:150ms] [animation-fill-mode:forwards]">
-              Raymund Hermoso
-            </h1>
-            <h2 className="text-xl sm:text-2xl text-slate-600 dark:text-slate-300 font-medium mb-6 animate-fade-in-up opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards]">
-              Web Developer
-            </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400 max-w-xl mb-8 leading-relaxed animate-fade-in-up opacity-0 [animation-delay:250ms] [animation-fill-mode:forwards]">
-              Mostly WordPress and Shopify sites, themes, and the odd custom build. Here’s what I’ve been up to.
-            </p>
-            <div className="flex flex-wrap gap-4 mb-8 animate-fade-in-up opacity-0 [animation-delay:300ms] [animation-fill-mode:forwards]">
-              <a
-                href={pdf}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg font-medium text-white bg-sky-500 hover:bg-sky-600 dark:bg-sky-600 dark:hover:bg-sky-500 transition-colors shadow-lg shadow-sky-500/25"
-              >
-                Download CV <FontAwesomeIcon icon={faDownload} className="w-4 h-4" />
-              </a>
-              <a
-                href="#projects"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg font-medium text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-600 hover:border-sky-500 hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
-              >
-                See my work <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
-              </a>
-            </div>
-            <div className="animate-fade-in-up opacity-0 [animation-delay:350ms] [animation-fill-mode:forwards]">
-              <Social />
-            </div>
-          </div>
-          {/* Image on RIGHT - bigger, object-top */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end order-1 lg:order-2">
-            <div className="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[28rem] lg:h-[28rem] animate-fade-in-up opacity-0 [animation-delay:0ms] [animation-fill-mode:forwards]">
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-sky-400/20 to-sky-600/20 dark:from-sky-500/10 dark:to-sky-700/10 blur-2xl" />
-              <img
-                src={profile}
-                alt="Raymund Hermoso"
-                className="relative w-full h-full object-cover object-top rounded-2xl border-2 border-slate-200/80 dark:border-slate-600/80 shadow-xl"
-              />
-            </div>
+    <section className="hero" id="top" ref={root}>
+      <NetworkCanvas hostRef={root} />
+      <div className="wrap hero-grid">
+        <div className="hero-copy">
+          <p className="hello">Hi, I’m</p>
+          <h1 className="name"><SplitChars text={profile.name} /></h1>
+          <p className="role">
+            <span className="sr-only">{profile.roles.join(', ')}</span>
+            <span ref={roleRef} aria-hidden="true" />
+          </p>
+          <p className="intro">{profile.intro}</p>
+          <div className="actions">
+            <a className="pill" href="#work" onClick={(e) => jump(e, 'work')}><Icon name="grid" />See my work</a>
+            <a className="text-link" href="#contact" onClick={(e) => jump(e, 'contact')}><Icon name="message" />Get in touch</a>
           </div>
         </div>
+        <Mosaic src={profile.photo} alt={`Photo of ${profile.name}`}>
+          <div className="badge-open"><span className="pulse" aria-hidden="true" />Open to new work</div>
+        </Mosaic>
       </div>
     </section>
-  );
-};
-
-export default Hero;
+  )
+}
