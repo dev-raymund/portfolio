@@ -23,6 +23,35 @@ export function AiBadge() {
   return <span className="ai-badge"><Icon name="sparkle" />Built with AI</span>
 }
 
+export function CaseStudyTag() {
+  return <span className="cs-tag"><Icon name="book" />Case study</span>
+}
+
+/* Screenshot link: opens the case study when there is one, otherwise the live site. */
+export function MediaLink({ project, className, children }) {
+  if (project.caseStudy) {
+    return (
+      <Link className={className} to={`/work/${project.caseStudy}`} data-view="Read case study" tabIndex={-1} aria-hidden="true">
+        {children}
+      </Link>
+    )
+  }
+  return (
+    <a className={className} href={project.url} target="_blank" rel="noopener" data-view tabIndex={-1} aria-hidden="true">
+      {children}
+    </a>
+  )
+}
+
+export function ProjectTitle({ project }) {
+  if (!project.caseStudy) return project.title
+  return (
+    <>
+      <Link className="title-link" to={`/work/${project.caseStudy}`}>{project.title}</Link> <CaseStudyTag />
+    </>
+  )
+}
+
 export default function WorkGallery() {
   const root = useRef(null)
   const trackRef = useRef(null)
@@ -109,13 +138,13 @@ export default function WorkGallery() {
           <div className="htrack" ref={trackRef}>
             {featuredProjects.map((p, i) => (
               <article className="panel" key={p.url}>
-                <a className="pmedia" href={p.url} target="_blank" rel="noopener" data-view tabIndex={-1} aria-hidden="true">
+                <MediaLink project={p} className="pmedia">
                   {p.ai && <AiBadge />}
                   <img className="shot" src={p.image} alt="" loading="lazy" decoding="async" style={p.position ? { objectPosition: p.position } : undefined} />
-                </a>
+                </MediaLink>
                 <div className="pinfo">
                   <span className="pnum">{pad(i + 1)}</span>
-                  <h3>{p.title}</h3>
+                  <h3><ProjectTitle project={p} /></h3>
                   <ProjectMeta project={p} />
                   <a className="plink" href={p.url} target="_blank" rel="noopener" aria-label={`Open ${p.title} in a new tab`}><Icon name="arrowUpRight" /></a>
                 </div>

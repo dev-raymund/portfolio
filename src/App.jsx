@@ -4,6 +4,7 @@ import Nav from './components/Nav'
 import ViewBubble from './components/ViewBubble'
 import Home from './pages/Home'
 import Work from './pages/Work'
+import CaseStudy from './pages/CaseStudy'
 import { scrollToTarget, ScrollTrigger, startSmoothScroll, stopSmoothScroll } from './lib/motion'
 
 export default function App() {
@@ -38,6 +39,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/work" element={<Work />} />
+        <Route path="/work/:slug" element={<CaseStudy />} />
         <Route path="*" element={<Home />} />
       </Routes>
       <ViewBubble />

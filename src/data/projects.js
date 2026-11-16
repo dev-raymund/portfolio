@@ -24,12 +24,13 @@ import marci from '../assets/work/real-estate.jpg'
   platform: 'wordpress' | 'shopify' | 'custom' | '' (unknown)
   featured: shown in the homepage gallery, in this order
   ai: built with AI help (shows a badge and appears under the "Built with AI" filter)
+  caseStudy: slug of an entry in caseStudies.js; cards then open /work/<slug>
   position: optional CSS object-position for the screenshot
 */
 export const projects = [
   { title: 'Sounds Like Sydney', url: 'https://soundslikesydney.com.au/', platform: 'wordpress', stack: 'WordPress', summary: "News and events for Sydney's community music scene.", image: soundslikesydney, featured: true, ai: true },
   { title: 'Counties Badminton Pro Shop', url: 'https://countiesbadmintonproshop.co.nz/', platform: 'shopify', stack: 'Shopify', summary: 'Badminton gear and a stringing lab for Counties Manukau, New Zealand.', image: countiesbadminton, featured: true, ai: true },
-  { title: 'Alex Rose', url: 'https://alexrose.uk/', platform: 'wordpress', stack: 'WordPress', summary: 'Made-to-measure jackets from a Leeds family tailor, since 1945.', image: alexrose, featured: true, ai: true },
+  { title: 'Alex Rose', url: 'https://alexrose.uk/', platform: 'wordpress', stack: 'WordPress', summary: 'Made-to-measure jackets from a Leeds family tailor, since 1945.', image: alexrose, featured: true, ai: true, caseStudy: 'alex-rose' },
   { title: 'ProLux Painting', url: 'https://www.proluxpainting.com.au/', platform: '', stack: '', summary: 'Residential and commercial painters in Sydney.', image: proluxpainting, featured: true, ai: true },
   { title: 'Multihull Central', url: 'https://www.multihullcentral.com/', platform: 'wordpress', stack: 'WordPress, custom ACF theme', summary: 'Catamaran sales with search filters, events and a service centre.', image: mhc, position: 'left top', featured: true },
   { title: 'Mission Estate', url: 'https://missionestate.co.nz/', platform: 'shopify', stack: 'Shopify', summary: "New Zealand's oldest winery: wine shop, restaurant and bookings.", image: missionestate, featured: true },

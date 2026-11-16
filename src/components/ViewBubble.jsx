@@ -15,7 +15,12 @@ export default function ViewBubble() {
     const move = (e) => {
       x(e.clientX)
       y(e.clientY)
-      const over = Boolean(e.target.closest?.('[data-view]'))
+      const target = e.target.closest?.('[data-view]')
+      const over = Boolean(target)
+      if (target) {
+        const label = target.dataset.view
+        el.textContent = label && label !== 'true' ? label : 'Open site'
+      }
       if (over !== on) {
         on = over
         gsap.to(el, over ? { scale: 1, opacity: 1, duration: 0.45, ease: 'back.out(2)' } : { scale: 0, opacity: 0, duration: 0.3 })

@@ -359,6 +359,53 @@ textarea.input { min-height: 9rem; resize: vertical; padding-top: .75rem; line-h
 .ext .icon { transition: transform .35s var(--ease); }
 .ext:hover .icon { transform: translate(2px, -2px); }
 
+/* ---------- case study ---------- */
+.cs-tag { display: inline-flex; align-items: center; gap: .3rem; vertical-align: middle; margin-left: .35rem; padding: .15rem .55rem; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); font-size: .75rem; font-weight: 700; letter-spacing: 0; }
+.title-link { text-decoration: underline; text-decoration-color: transparent; text-underline-offset: .2em; transition: text-decoration-color .3s; }
+.title-link:hover { text-decoration-color: currentColor; }
+.cs-head { padding-bottom: clamp(2rem, 5vw, 3.5rem); }
+.cs-title-row { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.25rem; }
+.cs-ai .ai-badge { position: static; font-size: .8125rem; padding: .4rem .85rem; }
+.cs-headline { margin: 1.1rem 0 0; max-width: 40rem; font-weight: 300; font-size: clamp(1.375rem, 2.4vw, 1.875rem); line-height: 1.3; letter-spacing: -.015em; }
+.cs-actions { margin-top: 1.75rem; }
+.cs-meta { list-style: none; display: grid; gap: .9rem; margin: clamp(2rem, 5vw, 3rem) 0 0; padding: 1.5rem 0 0; border-top: 1px solid var(--line); }
+@media (min-width: 40rem) { .cs-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 68rem) { .cs-meta { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.cs-meta li { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: .8rem; align-items: start; }
+.cs-meta-ico { grid-row: 1 / span 2; width: 2.25rem; height: 2.25rem; border-radius: 50%; background: var(--chip); display: grid; place-items: center; font-size: 1rem; }
+.cs-meta-label { color: var(--muted); font-size: .875rem; }
+.cs-meta strong { font-weight: 500; line-height: 1.35; }
+.cs-figure { margin: 0; }
+.cs-cover { overflow: hidden; border-radius: 24px; background: var(--bg-2); box-shadow: 0 40px 80px -50px var(--shadow); will-change: transform; }
+.cs-cover img { width: 100%; height: auto; }
+.cs-sec { padding: clamp(3.5rem, 8vw, 6rem) 0 0; }
+.cs-label { margin: 0; }
+.cs-body { max-width: 46rem; }
+.cs-body > p { margin: 0 0 1rem; color: var(--muted); }
+.cs-lead { color: var(--ink) !important; font-weight: 300; font-size: clamp(1.375rem, 2.2vw, 1.75rem); line-height: 1.38; letter-spacing: -.015em; margin-bottom: 1.25rem !important; }
+.cs-subtitle { margin: 0 0 1rem; font-weight: 400; font-size: clamp(1.5rem, 2.6vw, 2rem); letter-spacing: -.02em; line-height: 1.2; }
+.cs-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+@media (min-width: 40rem) { .cs-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.cs-step { position: relative; padding: 1.4rem; border-radius: 18px; background: var(--chip); border: 1px solid var(--line); }
+.cs-step-n { display: block; color: var(--muted); font-weight: 600; font-size: .875rem; font-variant-numeric: tabular-nums; }
+.cs-step h3, .cs-feature h3 { margin: .5rem 0 .3rem; font-weight: 500; font-size: 1.125rem; letter-spacing: -.01em; }
+.cs-step p, .cs-feature p { margin: 0; color: var(--muted); font-size: 1rem; }
+.cs-features { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+@media (min-width: 40rem) { .cs-features { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.cs-feature { padding: 1.3rem; border-radius: 18px; border: 1px solid var(--line); transition: border-color .3s, transform .45s var(--ease); }
+.cs-feature:hover { border-color: var(--ink); transform: translateY(-3px); }
+.cs-feature .fact-ico { margin-bottom: .6rem; background: var(--chip); }
+.cs-gallery { display: grid; gap: 2rem; }
+.cs-shot { margin: 0; }
+.cs-shot-img { overflow: hidden; border-radius: 18px; aspect-ratio: 1440 / 585; background: var(--bg-2); }
+.cs-shot-img img { width: 100%; height: 100%; object-fit: cover; }
+.cs-shot figcaption { margin-top: .7rem; color: var(--muted); font-size: .9375rem; }
+.cs-credits { font-size: .9375rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+@media (min-width: 56rem) {
+  .cs-sec .split { grid-template-columns: 13rem minmax(0, 1fr); }
+  .cs-label { padding-top: .45rem; }
+}
+
 /* ---------- reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   .badge-open, .pulse, .spin { animation: none; }
