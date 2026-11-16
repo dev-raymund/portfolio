@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    .t { fill: #141519; } .m { stroke: #E8E9ED; }
+    @media (prefers-color-scheme: dark) { .t { fill: #E8E9ED; } .m { stroke: #141519; } }
+  </style>
+  <rect class="t" width="64" height="64" rx="18"/>
+  <path class="m" d="M14 46V18h10a7 7 0 0 1 0 14H14M24 32l7 14M38 18v28M50 18v28M38 32h12" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

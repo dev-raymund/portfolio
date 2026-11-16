@@ -123,7 +123,11 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .nav.solid::before { opacity: 1; }
 .nav.menu-open::before { opacity: 0; }
 .nav.hide { transform: translateY(-110%); }
-.brand { font-weight: 600; font-size: 1.0625rem; letter-spacing: -.01em; white-space: nowrap; }
+.brand { display: inline-flex; align-items: center; gap: .6rem; font-weight: 600; font-size: 1.0625rem; letter-spacing: -.01em; white-space: nowrap; }
+.logo { width: 2.25rem; height: 2.25rem; flex: none; transition: transform .5s var(--ease); }
+.brand:hover .logo { transform: rotate(-8deg) scale(1.05); }
+.logo-tile { fill: var(--ink); transition: fill .5s var(--ease); }
+.logo-mark { stroke: var(--bg); transition: stroke .5s var(--ease); }
 .links { display: none; gap: 2rem; font-size: .9875rem; }
 .links a { position: relative; font-weight: 500; padding: .35rem 0; color: var(--muted); transition: color .3s; }
 .links a:hover, .links a.active { color: var(--ink); }
@@ -134,7 +138,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .icon-btn:hover { transform: rotate(-15deg); }
 .icon-btn .icon { font-size: 1.15rem; }
 .nav-cv .short { display: none; }
-@media (max-width: 30rem) { .nav-cv .long { display: none; } .nav-cv .short { display: inline; } .nav-cv { padding-inline: .9rem; } }
+@media (max-width: 40rem) { .nav-cv .long { display: none; } .nav-cv .short { display: inline; } .nav-cv { padding-inline: .9rem; } }
+@media (max-width: 30rem) { .nav-cv { display: none; } }
 @media (min-width: 56rem) { .links { display: flex; } .menu-btn { display: none; } }
 
 .menu {
@@ -264,7 +269,9 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .tl-desc { margin: .45rem 0 0; color: var(--muted); max-width: 38rem; }
 .tags { list-style: none; display: flex; flex-wrap: wrap; gap: .4rem; margin: .85rem 0 0; padding: 0; }
 .tags li { display: inline-flex; align-items: center; gap: .4rem; font-size: .8125rem; font-weight: 600; padding: .22rem .7rem .22rem .3rem; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
-.tags img { width: 1.15rem; height: 1.15rem; padding: 2px; border-radius: 50%; background: #fff; object-fit: contain; }
+.tags img, .tag-ico { width: 1.15rem; height: 1.15rem; padding: 2px; border-radius: 50%; background: #fff; object-fit: contain; }
+.tag-ico { display: grid; place-items: center; color: #141519; font-size: .7rem; padding: 0; }
+.tech i .icon { color: #141519; font-size: 1.2rem; }
 
 /* ---------- contact ---------- */
 .contact { padding: clamp(5rem, 11vw, 9rem) 0 0; }

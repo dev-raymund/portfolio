@@ -1,4 +1,5 @@
 import { useLayoutEffect, useRef } from 'react'
+import Icon from './Icon'
 import SectionHead from './SectionHead'
 import { tech } from '../data/tech'
 import { gsap, prefersReducedMotion, ScrollTrigger, standardMotion } from '../lib/motion'
@@ -11,7 +12,7 @@ function Row({ items, rowRef }) {
     <div className="mq-group" aria-hidden={hidden || undefined}>
       {items.map((t) => (
         <span className="tech" key={t.name}>
-          <i><img src={t.logo} alt="" loading="lazy" /></i>{t.name}
+          <i>{t.logo ? <img src={t.logo} alt="" loading="lazy" /> : <Icon name="code" />}</i>{t.name}
         </span>
       ))}
     </div>

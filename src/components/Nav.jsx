@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Icon from './Icon'
+import Logo from './Logo'
 import { profile } from '../data/profile'
 import { getLenis, scrollToTarget } from '../lib/motion'
 
@@ -92,7 +93,10 @@ export default function Nav() {
   return (
     <>
       <header className={cls}>
-        <Link className="brand" to="/" onClick={toTop}>{profile.name}</Link>
+        <Link className="brand" to="/" onClick={toTop} aria-label={`${profile.name}, home`}>
+          <Logo />
+          <span className="brand-name">{profile.name}</span>
+        </Link>
         <nav className="links" aria-label="Main">
           {LINKS.map((l) => (
             <a key={l.id} href={`/#${l.id}`} className={active === l.id ? 'active' : undefined} onClick={(e) => go(e, l.id)}>{l.label}</a>

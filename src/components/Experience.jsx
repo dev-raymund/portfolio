@@ -41,7 +41,7 @@ export default function Experience() {
                   <p className="tl-desc">{job.summary}</p>
                   <ul className="tags" aria-label="Tools used">
                     {job.tags.map((tag) => (
-                      <li key={tag}>{techLogo[tag] && <img src={techLogo[tag]} alt="" loading="lazy" />}{tag}</li>
+                      <li key={tag}>{techLogo[tag] ? <img src={techLogo[tag]} alt="" loading="lazy" /> : <span className="tag-ico"><Icon name="code" /></span>}{tag}</li>
                     ))}
                   </ul>
                 </li>

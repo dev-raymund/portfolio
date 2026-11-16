@@ -4,8 +4,8 @@ export const experience = [
     when: 'Jun 2025 to now',
     company: 'Agility Outsourcing',
     role: 'Web developer',
-    summary: 'WordPress builds, plugins and API integrations for UK businesses, as part of a UK-managed remote team.',
-    tags: ['WordPress', 'PHP', 'JavaScript'],
+    summary: 'WordPress, Laravel and Statamic sites, plugins and API integrations for UK businesses, as part of a UK-managed remote team.',
+    tags: ['WordPress', 'Laravel', 'Statamic', 'Replit'],
   },
   {
     when: 'Jun 2025 to now',

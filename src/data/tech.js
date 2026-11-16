@@ -21,11 +21,14 @@ import html from '../assets/svg/html-5.svg'
 import css from '../assets/svg/css-3.svg'
 
 // Order matters: the first row of the scrolling strip takes the first half.
+// logo: null shows a generic code icon until a logo file is added.
 export const tech = [
   { name: 'WordPress', logo: wordpress },
   { name: 'Shopify', logo: shopify },
   { name: 'PHP', logo: php },
   { name: 'Laravel', logo: laravel },
+  { name: 'Statamic', logo: null },
+  { name: 'Replit', logo: null },
   { name: 'React', logo: react },
   { name: 'Vue', logo: vue },
   { name: 'JavaScript', logo: javascript },
