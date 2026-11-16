@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Icon from '../components/Icon'
 import { SplitChars } from '../components/Split'
-import { AiBadge, MediaLink, ProjectMeta, ProjectTitle } from '../components/WorkGallery'
+import { ProjectMedia, ProjectMeta, ProjectTitle } from '../components/WorkGallery'
 import { domainOf, projects } from '../data/projects'
 import { techLogo } from '../data/tech'
 import { Flip, gsap, prefersReducedMotion, ScrollTrigger } from '../lib/motion'
@@ -101,10 +101,7 @@ export default function Work() {
         <div className="grid" ref={gridRef}>
           {projects.map((p) => (
             <article className="card" key={p.url} style={test(p) ? undefined : { display: 'none' }}>
-              <MediaLink project={p} className="media">
-                {p.ai && <AiBadge />}
-                <img src={p.image} alt="" loading="lazy" decoding="async" style={p.position ? { objectPosition: p.position } : undefined} />
-              </MediaLink>
+              <ProjectMedia project={p} className="media" />
               <h2><ProjectTitle project={p} /></h2>
               <p className="summary">{p.summary}</p>
               <div className="card-meta">

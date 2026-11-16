@@ -1,7 +1,6 @@
 import { useEffect, useLayoutEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import Nav from './components/Nav'
-import ViewBubble from './components/ViewBubble'
 import Home from './pages/Home'
 import Work from './pages/Work'
 import CaseStudy from './pages/CaseStudy'
@@ -42,7 +41,6 @@ export default function App() {
         <Route path="/work/:slug" element={<CaseStudy />} />
         <Route path="*" element={<Home />} />
       </Routes>
-      <ViewBubble />
     </>
   )
 }

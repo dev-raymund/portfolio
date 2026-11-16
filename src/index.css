@@ -105,11 +105,32 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .pmeta { display: inline-flex; align-items: center; gap: .45rem; margin: 0; color: var(--muted); font-size: .9375rem; }
 .plogo { width: 1.05rem; height: 1.05rem; object-fit: contain; padding: 2px; border-radius: 4px; background: #fff; }
 
-.view {
-  position: fixed; left: 0; top: 0; z-index: 60; width: 5.75rem; height: 5.75rem; margin: -2.875rem 0 0 -2.875rem;
-  border-radius: 50%; background: var(--ink); color: var(--bg); display: grid; place-items: center;
-  font-weight: 600; font-size: .875rem; pointer-events: none; opacity: 0;
+/* project screenshot actions: Open site / Read case study */
+.has-actions { position: relative; }
+.has-actions .ai-badge { z-index: 3; }
+.media-cover { position: absolute; inset: 0; z-index: 1; }
+.media-actions {
+  position: absolute; inset: 0; z-index: 2; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .6rem;
+  padding: 1rem; background: rgba(12, 13, 16, .42); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+  opacity: 0; pointer-events: none; transition: opacity .35s var(--ease);
 }
+.media-btn {
+  display: inline-flex; align-items: center; gap: .5rem; min-height: 2.75rem; padding: .5rem 1.15rem; border-radius: 999px;
+  background: #fff; color: #141519; font-weight: 600; font-size: .9375rem; white-space: nowrap;
+  transform: translateY(10px); transition: transform .45s var(--ease), background-color .25s, color .25s;
+}
+.media-btn .icon { font-size: 1.05rem; }
+.media-btn:hover { background: #141519; color: #fff; }
+.media-btn-dark { background: #141519; color: #fff; }
+.media-btn-dark:hover { background: #fff; color: #141519; }
+.has-actions:hover .media-actions, .has-actions:focus-within .media-actions { opacity: 1; }
+.has-actions:hover .media-btn, .has-actions:focus-within .media-btn { transform: none; pointer-events: auto; }
+.media-btn:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+@media (hover: none) {
+  .media-actions { inset: auto 0 0 0; justify-content: flex-start; padding: .7rem; opacity: 1; background: linear-gradient(transparent, rgba(12, 13, 16, .6)); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .media-btn { transform: none; pointer-events: auto; min-height: 2.5rem; padding: .4rem .9rem; font-size: .875rem; }
+}
+.cs-tag:hover { border-color: var(--ink); color: var(--ink); }
 
 /* ---------- nav ---------- */
 .nav {
