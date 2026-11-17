@@ -259,6 +259,13 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .panel { width: 82vw; scroll-snap-align: center; }
   .hprogress { display: none; }
 }
+/* Reduced motion on wider screens: a plain sideways-scrolling row instead of the pinned gallery */
+@media (prefers-reduced-motion: reduce) {
+  .hwork-pin { min-height: 0; padding-block: 3rem 1rem; }
+  .hscroll { overflow-x: auto; scroll-snap-type: x proximity; padding-bottom: .75rem; }
+  .panel { scroll-snap-align: start; }
+  .hprogress { display: none; }
+}
 
 /* ---------- stack ---------- */
 .stack { padding: clamp(4rem, 8vw, 6rem) 0 clamp(5rem, 10vw, 8rem); }

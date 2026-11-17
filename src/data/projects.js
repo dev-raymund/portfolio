@@ -25,7 +25,7 @@ import leaftHydrogen from '../assets/work/lb-hydrogen.jpg'
 
 /*
   platform: 'wordpress' | 'shopify' | 'custom' | '' (unknown)
-  featured: shown in the homepage gallery, in this order
+  featured: shown in the homepage gallery (projects with a case study first, then in this order)
   ai: built with AI help (shows a badge and appears under the "Built with AI" filter)
   caseStudy: slug of an entry in caseStudies.js; cards then open /work/<slug>
   react: built with React (appears under the "React" filter)
@@ -41,9 +41,9 @@ export const projects = [
   { title: 'Morgan Property Management', url: 'https://www.mpm.house/', platform: 'custom', stack: 'React, Express (Replit Agent)', summary: 'Two restored holiday cottages in Shropshire.', image: mpmHouse, ai: true, react: true },
   { title: 'Multihull Central', url: 'https://www.multihullcentral.com/', platform: 'wordpress', stack: 'WordPress, custom ACF theme', summary: 'Catamaran sales with search filters, events and a service centre.', image: mhc, position: 'left top', featured: true },
   { title: 'Mission Estate', url: 'https://missionestate.co.nz/', platform: 'shopify', stack: 'Shopify', summary: "New Zealand's oldest winery: wine shop, restaurant and bookings.", image: missionestate, featured: true },
-  { title: 'Leaft Blade', url: 'https://www.leaftblade.com/', platform: 'shopify', stack: 'Shopify', summary: 'Storefront for a leaf-protein drink sold in New Zealand.', image: leaftblade, featured: true },
-  { title: 'Leaft Blade, Hydrogen version', url: 'https://web.archive.org/web/20250712191621/https://yourleaftsecret.com/', platform: 'shopify', stack: 'Shopify Hydrogen, React', summary: 'The earlier headless storefront I took over: redesign, subscriptions, cart and custom sections.', image: leaftHydrogen, react: true, archived: true, caseStudy: 'leaft-blade-hydrogen' },
-  { title: 'PPD back office', url: '', platform: 'custom', stack: 'React, Laravel', summary: 'Internal app for doctor survey data: editable tables, filters and reports, 60% faster processing.', illustration: 'backoffice', react: true, caseStudy: 'ppd-back-office' },
+  { title: 'Leaft Blade', url: 'https://www.leaftblade.com/', platform: 'shopify', stack: 'Shopify', summary: 'Storefront for a leaf-protein drink sold in New Zealand.', image: leaftblade },
+  { title: 'Leaft Blade, Hydrogen version', url: 'https://web.archive.org/web/20250712191621/https://yourleaftsecret.com/', platform: 'shopify', stack: 'Shopify Hydrogen, React', summary: 'The earlier headless storefront I took over: redesign, subscriptions, cart and custom sections.', image: leaftHydrogen, react: true, archived: true, caseStudy: 'leaft-blade-hydrogen', featured: true },
+  { title: 'PPD back office', url: '', platform: 'custom', stack: 'React, Laravel', summary: 'Internal app for doctor survey data: editable tables, filters and reports, 60% faster processing.', illustration: 'backoffice', react: true, caseStudy: 'ppd-back-office', featured: true },
   { title: 'Bus 4x4', url: 'https://www.bus4x4.com.au/', platform: 'wordpress', stack: 'WordPress, Avada with custom code', summary: '4WD bus conversions: specs, project galleries and service requests.', image: bus4x4, featured: true },
   { title: 'Talk Global Study', url: 'https://talkglobalstudy.com', platform: 'wordpress', stack: 'WordPress, REST API', summary: 'Connects students with universities and colleges abroad.', image: tgsHub },
   { title: 'Off Route Adventures', url: 'https://offrouteadventures.com/', platform: 'shopify', stack: 'Shopify', summary: 'Snowmobile tours with a shop alongside.', image: offroute },
@@ -60,7 +60,10 @@ export const projects = [
   { title: 'Marci Metzger, Real Estate', url: 'https://real-estate-flame-two.vercel.app/', platform: 'custom', stack: 'HTML, CSS and JavaScript', summary: 'Real estate site built without a framework or CMS.', image: marci },
 ]
 
-export const featuredProjects = projects.filter((p) => p.featured)
+export const featuredProjects = [
+  ...projects.filter((p) => p.featured && p.caseStudy),
+  ...projects.filter((p) => p.featured && !p.caseStudy),
+]
 
 export const platformLabel = { wordpress: 'WordPress', shopify: 'Shopify', custom: 'Custom' }
 

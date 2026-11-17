@@ -96,9 +96,9 @@ export default function WorkGallery() {
       }
     }, root)
 
-    // Desktop: pin the section and slide the track sideways while scrolling down.
     const mm = gsap.matchMedia()
-    mm.add('(min-width: 900px)', () => {
+    // Desktop with motion: pin the section and slide the track sideways while scrolling down.
+    mm.add('(min-width: 900px) and (prefers-reduced-motion: no-preference)', () => {
       const track = trackRef.current
       const scroller = scrollerRef.current
       const panels = gsap.utils.toArray('.panel', root.current)
@@ -134,8 +134,9 @@ export default function WorkGallery() {
       }
     }, root.current)
 
-    // Phones: the gallery swipes natively; keep the counter in step with it.
-    mm.add('(max-width: 899px)', () => {
+    // Phones, and anyone who has reduced motion: the gallery scrolls sideways natively;
+    // keep the counter in step with it.
+    mm.add('(max-width: 899px), (prefers-reduced-motion: reduce)', () => {
       const scroller = scrollerRef.current
       const onScroll = () => {
         const panel = scroller.querySelector('.panel')
@@ -164,13 +165,15 @@ export default function WorkGallery() {
         <div className="hscroll" ref={scrollerRef}>
           <div className="htrack" ref={trackRef}>
             {featuredProjects.map((p, i) => (
-              <article className="panel" key={p.url}>
+              <article className="panel" key={p.title}>
                 <ProjectMedia project={p} className="pmedia" imgClassName="shot" />
                 <div className="pinfo">
                   <span className="pnum">{pad(i + 1)}</span>
                   <h3><ProjectTitle project={p} /></h3>
                   <ProjectMeta project={p} />
-                  <a className="plink" href={p.url} target="_blank" rel="noopener" aria-label={`Open ${p.title} in a new tab`}><Icon name="arrowUpRight" /></a>
+                  {p.url
+                    ? <a className="plink" href={p.url} target="_blank" rel="noopener" aria-label={`Open ${p.title} in a new tab`}><Icon name="arrowUpRight" /></a>
+                    : <Link className="plink" to={`/work/${p.caseStudy}`} aria-label={`Read the ${p.title} case study`}><Icon name="book" /></Link>}
                 </div>
               </article>
             ))}
