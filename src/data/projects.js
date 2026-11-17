@@ -19,12 +19,17 @@ import fastTrack from '../assets/work/fast_track_home_loans.jpg'
 import lisaSherman from '../assets/work/lisasherman.jpg'
 import nutracraft from '../assets/work/nutracraft.jpg'
 import marci from '../assets/work/real-estate.jpg'
+import alexanderRose from '../assets/work/alexanderrose.jpg'
+import mpmHouse from '../assets/work/mpmhouse.jpg'
+import leaftHydrogen from '../assets/work/lb-hydrogen.jpg'
 
 /*
   platform: 'wordpress' | 'shopify' | 'custom' | '' (unknown)
   featured: shown in the homepage gallery, in this order
   ai: built with AI help (shows a badge and appears under the "Built with AI" filter)
   caseStudy: slug of an entry in caseStudies.js; cards then open /work/<slug>
+  react: built with React (appears under the "React" filter)
+  archived: the live site has changed; url points to an archived copy
   position: optional CSS object-position for the screenshot
 */
 export const projects = [
@@ -32,9 +37,12 @@ export const projects = [
   { title: 'Counties Badminton Pro Shop', url: 'https://countiesbadmintonproshop.co.nz/', platform: 'shopify', stack: 'Shopify', summary: 'Badminton gear and a stringing lab for Counties Manukau, New Zealand.', image: countiesbadminton, featured: true, ai: true },
   { title: 'Alex Rose', url: 'https://alexrose.uk/', platform: 'wordpress', stack: 'WordPress', summary: 'Made-to-measure jackets from a Leeds family tailor, since 1945.', image: alexrose, featured: true, ai: true, caseStudy: 'alex-rose' },
   { title: 'ProLux Painting', url: 'https://www.proluxpainting.com.au/', platform: '', stack: '', summary: 'Residential and commercial painters in Sydney.', image: proluxpainting, featured: true, ai: true },
+  { title: 'Alexander Rose', url: 'https://www.alexander-rose.net/', platform: 'custom', stack: 'React, Express (Replit Agent)', summary: 'Made-to-measure suits from a tailor in Rodley, Leeds.', image: alexanderRose, ai: true, react: true },
+  { title: 'Morgan Property Management', url: 'https://www.mpm.house/', platform: 'custom', stack: 'React, Express (Replit Agent)', summary: 'Two restored holiday cottages in Shropshire.', image: mpmHouse, ai: true, react: true },
   { title: 'Multihull Central', url: 'https://www.multihullcentral.com/', platform: 'wordpress', stack: 'WordPress, custom ACF theme', summary: 'Catamaran sales with search filters, events and a service centre.', image: mhc, position: 'left top', featured: true },
   { title: 'Mission Estate', url: 'https://missionestate.co.nz/', platform: 'shopify', stack: 'Shopify', summary: "New Zealand's oldest winery: wine shop, restaurant and bookings.", image: missionestate, featured: true },
   { title: 'Leaft Blade', url: 'https://www.leaftblade.com/', platform: 'shopify', stack: 'Shopify', summary: 'Storefront for a leaf-protein drink sold in New Zealand.', image: leaftblade, featured: true },
+  { title: 'Leaft Blade, Hydrogen version', url: 'https://web.archive.org/web/20250712191621/https://yourleaftsecret.com/', platform: 'shopify', stack: 'Shopify Hydrogen, React', summary: 'The earlier headless storefront, with country and currency switching and subscriptions.', image: leaftHydrogen, react: true, archived: true },
   { title: 'Bus 4x4', url: 'https://www.bus4x4.com.au/', platform: 'wordpress', stack: 'WordPress, Avada with custom code', summary: '4WD bus conversions: specs, project galleries and service requests.', image: bus4x4, featured: true },
   { title: 'Talk Global Study', url: 'https://talkglobalstudy.com', platform: 'wordpress', stack: 'WordPress, REST API', summary: 'Connects students with universities and colleges abroad.', image: tgsHub },
   { title: 'Off Route Adventures', url: 'https://offrouteadventures.com/', platform: 'shopify', stack: 'Shopify', summary: 'Snowmobile tours with a shop alongside.', image: offroute },

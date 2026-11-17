@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import Icon from './Icon'
 import SectionHead from './SectionHead'
-import { featuredProjects, projects } from '../data/projects'
+import { featuredProjects, platformLabel, projects } from '../data/projects'
 import { techLogo } from '../data/tech'
 import { gsap, prefersReducedMotion, standardMotion } from '../lib/motion'
 
@@ -10,7 +10,8 @@ const pad = (n) => String(n).padStart(2, '0')
 const aiCount = projects.filter((p) => p.ai).length
 
 export function ProjectMeta({ project }) {
-  const logo = project.stack ? techLogo[project.stack.split(',')[0]] : null
+  const first = project.stack ? project.stack.split(',')[0].trim() : ''
+  const logo = techLogo[first] || techLogo[platformLabel[project.platform]] || null
   return (
     <p className="pmeta">
       {logo && <img className="plogo" src={logo} alt="" />}
@@ -48,7 +49,7 @@ export function ProjectMedia({ project, className, imgClassName }) {
       {cover}
       <div className="media-actions">
         <a className="media-btn" href={project.url} target="_blank" rel="noopener">
-          <Icon name="arrowUpRight" />Open site<span className="sr-only">: {project.title}, opens in a new tab</span>
+          <Icon name="arrowUpRight" />{project.archived ? 'View archived site' : 'Open site'}<span className="sr-only">: {project.title}, opens in a new tab</span>
         </a>
         {project.caseStudy && (
           <Link className="media-btn media-btn-dark" to={caseStudyPath(project)}>

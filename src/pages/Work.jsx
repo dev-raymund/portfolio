@@ -12,6 +12,7 @@ const FILTERS = [
   { id: 'all', label: 'All', icon: 'grid', test: () => true },
   { id: 'wordpress', label: 'WordPress', logo: techLogo.WordPress, test: (p) => p.platform === 'wordpress' },
   { id: 'shopify', label: 'Shopify', logo: techLogo.Shopify, test: (p) => p.platform === 'shopify' },
+  { id: 'react', label: 'React', logo: techLogo.React, test: (p) => p.react },
   { id: 'custom', label: 'Custom', icon: 'code', test: (p) => p.platform === 'custom' },
   { id: 'ai', label: 'Built with AI', icon: 'sparkle', test: (p) => p.ai },
 ]
@@ -106,7 +107,7 @@ export default function Work() {
               <p className="summary">{p.summary}</p>
               <div className="card-meta">
                 <ProjectMeta project={p} />
-                <a className="ext" href={p.url} target="_blank" rel="noopener">{domainOf(p.url)}<Icon name="arrowUpRight" /></a>
+                <a className="ext" href={p.url} target="_blank" rel="noopener">{p.archived ? 'Archived copy' : domainOf(p.url)}<Icon name="arrowUpRight" /></a>
               </div>
             </article>
           ))}
