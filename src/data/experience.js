@@ -11,7 +11,7 @@ export const experience = [
     when: 'Jun 2025 to now',
     company: 'Ignition Consulting',
     role: 'Shopify and WordPress developer, part-time',
-    summary: 'Design and build for New Zealand brands, including Mission Estate and Leaft Blade.',
+    summary: 'Tailored Shopify and WordPress sites for clients, built to increase sales and attract customers.',
     tags: ['Shopify', 'WordPress', 'React', 'Figma'],
   },
   {
