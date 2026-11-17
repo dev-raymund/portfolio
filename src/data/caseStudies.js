@@ -14,7 +14,7 @@ import leaftBuy from '../assets/work/case/leaft-hydrogen-buy.jpg'
     text      { icon, label, title?, lead?, paragraphs }
     steps     { icon, label, steps: [{ title, text }] }
     features  { icon, label, items: [{ icon, title, text }] }
-    gallery   { icon, label, items: [{ src, alt, caption, position? }] }
+    gallery   { icon, label, items: [{ src, alt, caption, position?, natural? }] }  natural: show the whole image, uncropped
     diagram   { icon, label, nodes: [{ icon, title, text }], extras: [{ icon, text }], caption? }
 */
 export const caseStudies = {
@@ -123,7 +123,7 @@ export const caseStudies = {
       {
         type: 'gallery', icon: 'globe', label: 'On the Hydrogen site',
         items: [
-          { src: leaftBuy, position: 'center top', alt: 'The buy box: 7 Sample Pack, one-time purchase or Subscribe & Save, and Add to Cart', caption: 'The buy box: pick one-time purchase or Subscribe & Save, then add to cart.' },
+          { src: leaftBuy, natural: true, alt: 'The buy box: 7 Sample Pack, one-time purchase or Subscribe & Save, and Add to Cart', caption: 'The buy box: pick one-time purchase or Subscribe & Save, then add to cart.' },
         ],
       },
       {

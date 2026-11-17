@@ -62,7 +62,7 @@ function SectionContent({ s }) {
         <div className="cs-gallery">
           {s.items.map((g) => (
             <figure className="cs-shot" key={g.caption}>
-              <div className="cs-shot-img"><img src={g.src} alt={g.alt} loading="lazy" decoding="async" style={{ objectPosition: g.position || 'center top' }} /></div>
+              <div className={g.natural ? 'cs-shot-img natural' : 'cs-shot-img'}><img src={g.src} alt={g.alt} loading="lazy" decoding="async" style={{ objectPosition: g.position || 'center top' }} /></div>
               <figcaption>{g.caption}</figcaption>
             </figure>
           ))}
