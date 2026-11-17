@@ -2,6 +2,7 @@ const PATHS = {
   arrowDownRight: <path d="M7 7l10 10M17 9v8H9" />,
   arrowUpRight: <path d="M7 17 17 7M8 7h9v9" />,
   arrowLeft: <path d="M19 12H5M11 6l-6 6 6 6" />,
+  arrowRight: <path d="M5 12h14M13 6l6 6-6 6" />,
   arrowUp: <path d="M12 19V5M6 11l6-6 6 6" />,
   download: <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />,
   mail: (<><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3.5 6.5 8.5 7 8.5-7" /></>),

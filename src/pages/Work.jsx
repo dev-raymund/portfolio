@@ -101,13 +101,15 @@ export default function Work() {
         <p className="sr-only" aria-live="polite">{projects.filter(test).length} projects shown</p>
         <div className="grid" ref={gridRef}>
           {projects.map((p) => (
-            <article className="card" key={p.url} style={test(p) ? undefined : { display: 'none' }}>
+            <article className="card" key={p.title} style={test(p) ? undefined : { display: 'none' }}>
               <ProjectMedia project={p} className="media" />
               <h2><ProjectTitle project={p} /></h2>
               <p className="summary">{p.summary}</p>
               <div className="card-meta">
                 <ProjectMeta project={p} />
-                <a className="ext" href={p.url} target="_blank" rel="noopener">{p.archived ? 'Archived copy' : domainOf(p.url)}<Icon name="arrowUpRight" /></a>
+                {p.url
+                  ? <a className="ext" href={p.url} target="_blank" rel="noopener">{p.archived ? 'Archived copy' : domainOf(p.url)}<Icon name="arrowUpRight" /></a>
+                  : <span className="ext ext-muted">Internal app</span>}
               </div>
             </article>
           ))}

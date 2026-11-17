@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import BackOfficeIllustration from './BackOfficeIllustration'
 import Icon from './Icon'
 import SectionHead from './SectionHead'
 import { featuredProjects, platformLabel, projects } from '../data/projects'
@@ -32,12 +33,12 @@ const caseStudyPath = (project) => `/work/${project.caseStudy}`
   exists. Clicking elsewhere on the image does the main action.
 */
 export function ProjectMedia({ project, className, imgClassName }) {
-  const cover = project.caseStudy
-    ? <Link className="media-cover" to={caseStudyPath(project)} tabIndex={-1} aria-hidden="true" />
-    : <a className="media-cover" href={project.url} target="_blank" rel="noopener" tabIndex={-1} aria-hidden="true" />
-  return (
-    <div className={`${className} has-actions`}>
-      {project.ai && <AiBadge />}
+  let cover = null
+  if (project.caseStudy) cover = <Link className="media-cover" to={caseStudyPath(project)} tabIndex={-1} aria-hidden="true" />
+  else if (project.url) cover = <a className="media-cover" href={project.url} target="_blank" rel="noopener" tabIndex={-1} aria-hidden="true" />
+  const visual = project.illustration === 'backoffice'
+    ? <BackOfficeIllustration className={`media-illustration ${imgClassName || ''}`} label={false} />
+    : (
       <img
         className={imgClassName}
         src={project.image}
@@ -46,11 +47,18 @@ export function ProjectMedia({ project, className, imgClassName }) {
         decoding="async"
         style={project.position ? { objectPosition: project.position } : undefined}
       />
+    )
+  return (
+    <div className={`${className} has-actions`}>
+      {project.ai && <AiBadge />}
+      {visual}
       {cover}
       <div className="media-actions">
-        <a className="media-btn" href={project.url} target="_blank" rel="noopener">
-          <Icon name="arrowUpRight" />{project.archived ? 'View archived site' : 'Open site'}<span className="sr-only">: {project.title}, opens in a new tab</span>
-        </a>
+        {project.url && (
+          <a className="media-btn" href={project.url} target="_blank" rel="noopener">
+            <Icon name="arrowUpRight" />{project.archived ? 'View archived site' : 'Open site'}<span className="sr-only">: {project.title}, opens in a new tab</span>
+          </a>
+        )}
         {project.caseStudy && (
           <Link className="media-btn media-btn-dark" to={caseStudyPath(project)}>
             <Icon name="book" />Read case study<span className="sr-only">: {project.title}</span>

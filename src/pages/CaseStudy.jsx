@@ -1,12 +1,16 @@
-import { useEffect, useLayoutEffect, useRef } from 'react'
+import { Fragment, useEffect, useLayoutEffect, useRef } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
+import BackOfficeIllustration from '../components/BackOfficeIllustration'
 import Footer from '../components/Footer'
 import Icon from '../components/Icon'
 import { SplitChars, SplitWords } from '../components/Split'
 import { AiBadge } from '../components/WorkGallery'
 import { caseStudies } from '../data/caseStudies'
 import { domainOf } from '../data/projects'
+import { techLogo } from '../data/tech'
 import { gsap, prefersReducedMotion, standardMotion } from '../lib/motion'
+
+const ILLUSTRATIONS = { backoffice: BackOfficeIllustration }
 
 function Section({ icon, label, children, id }) {
   return (
@@ -17,6 +21,78 @@ function Section({ icon, label, children, id }) {
       </div>
     </section>
   )
+}
+
+function SectionContent({ s }) {
+  switch (s.type) {
+    case 'text':
+      return (
+        <>
+          {s.title && <h3 className="cs-subtitle">{s.title}</h3>}
+          {s.lead && <p className="cs-lead" data-scrub-words><SplitWords text={s.lead} /></p>}
+          {s.paragraphs.map((p) => <p key={p} data-reveal>{p}</p>)}
+        </>
+      )
+    case 'steps':
+      return (
+        <ol className="cs-steps">
+          {s.steps.map((step, i) => (
+            <li className="cs-step" key={step.title}>
+              <span className="cs-step-n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </li>
+          ))}
+        </ol>
+      )
+    case 'features':
+      return (
+        <ul className="cs-features">
+          {s.items.map((f) => (
+            <li className="cs-feature" key={f.title}>
+              <span className="fact-ico"><Icon name={f.icon} /></span>
+              <h3>{f.title}</h3>
+              <p>{f.text}</p>
+            </li>
+          ))}
+        </ul>
+      )
+    case 'gallery':
+      return (
+        <div className="cs-gallery">
+          {s.items.map((g) => (
+            <figure className="cs-shot" key={g.caption}>
+              <div className="cs-shot-img"><img src={g.src} alt={g.alt} loading="lazy" decoding="async" style={{ objectPosition: g.position || 'center top' }} /></div>
+              <figcaption>{g.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      )
+    case 'diagram':
+      return (
+        <figure className="cs-diagram">
+          <ol className="cs-flow">
+            {s.nodes.map((n, i) => (
+              <Fragment key={n.title}>
+                {i > 0 && <li className="cs-flow-arrow" aria-hidden="true"><Icon name="arrowRight" /></li>}
+                <li className="cs-node">
+                  <span className="fact-ico"><Icon name={n.icon} /></span>
+                  <strong>{n.title}</strong>
+                  <span>{n.text}</span>
+                </li>
+              </Fragment>
+            ))}
+          </ol>
+          {s.extras && (
+            <ul className="cs-extras">
+              {s.extras.map((e) => <li key={e.text}><Icon name={e.icon} />{e.text}</li>)}
+            </ul>
+          )}
+        </figure>
+      )
+    default:
+      return null
+  }
 }
 
 export default function CaseStudy() {
@@ -43,7 +119,7 @@ export default function CaseStudy() {
         scrollTrigger: { trigger: '.cs-cover', start: 'top bottom', end: 'top 25%', scrub: true },
       })
       standardMotion(root.current)
-      gsap.utils.toArray('.cs-step, .cs-feature, .cs-shot').forEach((el) => {
+      gsap.utils.toArray('.cs-step, .cs-feature, .cs-shot, .cs-node, .cs-extras li').forEach((el) => {
         gsap.from(el, { y: 36, opacity: 0, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 90%' } })
       })
     }, root)
@@ -51,6 +127,11 @@ export default function CaseStudy() {
   }, [cs])
 
   if (!cs) return <Navigate to="/work" replace />
+
+  const Illustration = cs.cover?.illustration ? ILLUSTRATIONS[cs.cover.illustration] : null
+  const visit = cs.url && (
+    <a className="pill" href={cs.url} target="_blank" rel="noopener"><Icon name="globe" />{cs.urlLabel || `Visit ${domainOf(cs.url)}`}</a>
+  )
 
   return (
     <main id="main" ref={root} className="case-page">
@@ -63,10 +144,11 @@ export default function CaseStudy() {
           <div className="cs-title-row">
             <h1 className="page-title cs-title"><SplitChars text={cs.title} /></h1>
             {cs.ai && <span className="cs-ai"><AiBadge /></span>}
+            {cs.react && <span className="cs-ai"><span className="ai-badge"><img className="badge-logo" src={techLogo.React} alt="" />React</span></span>}
           </div>
           <p className="cs-headline">{cs.headline}</p>
           <div className="actions cs-actions">
-            <a className="pill" href={cs.url} target="_blank" rel="noopener"><Icon name="globe" />Visit {domainOf(cs.url)}</a>
+            {visit}
             <Link className="text-link" to="/work"><Icon name="grid" />All projects</Link>
           </div>
           <ul className="cs-meta">
@@ -81,65 +163,35 @@ export default function CaseStudy() {
         </div>
       </header>
 
-      <div className="wrap">
-        <figure className="cs-figure">
-          <div className="cs-cover"><img src={cs.cover.src} alt={cs.cover.alt} /></div>
-        </figure>
-      </div>
-
-      <Section icon="file" label="The brief" id="cs-brief">
-        <p className="cs-lead" data-scrub-words><SplitWords text={cs.summary} /></p>
-        {cs.brief.map((p) => <p key={p} data-reveal>{p}</p>)}
-      </Section>
-
-      <Section icon="sparkle" label="How I used AI" id="cs-ai">
-        <ol className="cs-steps">
-          {cs.aiSteps.map((s, i) => (
-            <li className="cs-step" key={s.title}>
-              <span className="cs-step-n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-              <h3>{s.title}</h3>
-              <p>{s.text}</p>
-            </li>
-          ))}
-        </ol>
-      </Section>
-
-      <Section icon="grid" label="What shipped" id="cs-shipped">
-        <ul className="cs-features">
-          {cs.features.map((f) => (
-            <li className="cs-feature" key={f.title}>
-              <span className="fact-ico"><Icon name={f.icon} /></span>
-              <h3>{f.title}</h3>
-              <p>{f.text}</p>
-            </li>
-          ))}
-        </ul>
-      </Section>
-
-      <Section icon="code" label="The hardest part" id="cs-hard">
-        <h3 className="cs-subtitle">{cs.hardest.title}</h3>
-        {cs.hardest.paragraphs.map((p) => <p key={p} data-reveal>{p}</p>)}
-      </Section>
-
-      <Section icon="globe" label="On the live site" id="cs-gallery">
-        <div className="cs-gallery">
-          {cs.gallery.map((g) => (
-            <figure className="cs-shot" key={g.caption}>
-              <div className="cs-shot-img"><img src={g.src} alt={g.alt} loading="lazy" decoding="async" style={{ objectPosition: g.position || 'center top' }} /></div>
-              <figcaption>{g.caption}</figcaption>
-            </figure>
-          ))}
+      {cs.cover && (
+        <div className="wrap">
+          <figure className="cs-figure">
+            <div className="cs-cover">
+              {Illustration ? <Illustration /> : <img src={cs.cover.src} alt={cs.cover.alt} />}
+            </div>
+            {cs.cover.caption && <figcaption className="cs-cover-cap">{cs.cover.caption}</figcaption>}
+          </figure>
         </div>
-      </Section>
+      )}
 
-      <Section icon="signal" label="Where it stands" id="cs-status">
-        <p data-reveal>{cs.status}</p>
-        <p className="cs-credits" data-reveal>{cs.credits}</p>
-        <div className="actions" data-reveal>
-          <a className="pill" href={cs.url} target="_blank" rel="noopener"><Icon name="globe" />Visit {domainOf(cs.url)}</a>
-          <Link className="pill ghost-pill" to="/#contact"><Icon name="message" />Start a project</Link>
+      {cs.sections.map((s, i) => (
+        <Section key={s.label} icon={s.icon} label={s.label} id={`cs-sec-${i}`}>
+          <SectionContent s={s} />
+        </Section>
+      ))}
+
+      <section className="cs-sec cs-end">
+        <div className="wrap split">
+          <span aria-hidden="true" />
+          <div className="cs-body">
+            <p className="cs-credits" data-reveal>{cs.credits}</p>
+            <div className="actions" data-reveal>
+              {visit}
+              <Link className={cs.url ? 'pill ghost-pill' : 'pill'} to="/#contact"><Icon name="message" />Start a project</Link>
+            </div>
+          </div>
         </div>
-      </Section>
+      </section>
 
       <div className="wrap"><Footer /></div>
     </main>
