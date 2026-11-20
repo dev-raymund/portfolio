@@ -9,7 +9,7 @@ export function startAnalytics() {
   if (!GA_ID || started || typeof window === 'undefined') return
   started = true
   window.dataLayer = window.dataLayer || []
-  window.gtag = function gtag() { window.dataLayer.push(arguments) } // eslint-disable-line prefer-rest-params
+  window.gtag = function gtag() { window.dataLayer.push(arguments) }
   window.gtag('js', new Date())
   window.gtag('config', GA_ID, { send_page_view: false })
   const s = document.createElement('script')
