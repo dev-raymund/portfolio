@@ -5,12 +5,12 @@ import Home from './pages/Home'
 import Work from './pages/Work'
 import CaseStudy from './pages/CaseStudy'
 import { scrollToTarget, ScrollTrigger, startSmoothScroll, stopSmoothScroll } from './lib/motion'
-import { startAnalytics, trackEvent, trackPageView } from './lib/analytics'
+import { startAnalytics, trackEvent } from './lib/analytics'
 
 export default function App() {
   const { pathname, hash } = useLocation()
 
-  // Analytics: page views per route, plus CV downloads (any link to the PDF).
+  // Analytics: GA4 enhanced measurement records page views (route changes included); we add CV downloads.
   useEffect(() => {
     startAnalytics()
     const onClick = (e) => {
@@ -20,8 +20,6 @@ export default function App() {
     document.addEventListener('click', onClick)
     return () => document.removeEventListener('click', onClick)
   }, [])
-
-  useEffect(() => { trackPageView(pathname) }, [pathname])
 
   useEffect(() => {
     startSmoothScroll()
