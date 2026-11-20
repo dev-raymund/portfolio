@@ -2,6 +2,7 @@ import { Fragment, useEffect, useLayoutEffect, useRef } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import BackOfficeIllustration from '../components/BackOfficeIllustration'
 import Footer from '../components/Footer'
+import { DEFAULT_TITLE } from '../data/seo'
 import Icon from '../components/Icon'
 import { SplitChars, SplitWords } from '../components/Split'
 import { AiBadge } from '../components/WorkGallery'
@@ -103,7 +104,7 @@ export default function CaseStudy() {
   useEffect(() => {
     if (!cs) return undefined
     document.title = `${cs.title} case study | Raymund Hermoso`
-    return () => { document.title = 'Raymund Hermoso | WordPress & Shopify Developer' }
+    return () => { document.title = DEFAULT_TITLE }
   }, [cs])
 
   useLayoutEffect(() => {

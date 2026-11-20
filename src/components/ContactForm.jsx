@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Icon from './Icon'
 import { profile, web3formsKey } from '../data/profile'
+import { trackEvent } from '../lib/analytics'
 
 const TOPICS = [
   { id: 'project', label: 'A project', icon: 'code' },
@@ -47,6 +48,7 @@ export default function ContactForm() {
       const subject = encodeURIComponent(`${topicLabel}: message from ${values.name}`)
       const body = encodeURIComponent(`${values.message}\n\n${values.name}\n${values.email}`)
       window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`
+      trackEvent('generate_lead', { method: 'email_app', topic })
       setStatus('mailto')
       return
     }
@@ -68,6 +70,7 @@ export default function ContactForm() {
       const json = await res.json().catch(() => ({}))
       if (!res.ok || json.success === false) throw new Error(json.message || 'Request failed')
       setSent({ name: values.name, email: values.email })
+      trackEvent('generate_lead', { method: 'form', topic })
       setStatus('sent')
       form.reset()
       setTopic('project')

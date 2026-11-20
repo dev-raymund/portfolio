@@ -22,7 +22,7 @@ export default function Nav() {
   const [solid, setSolid] = useState(false)
   const [hidden, setHidden] = useState(false)
   const [active, setActive] = useState('')
-  const [theme, setTheme] = useState(() => document.documentElement.dataset.theme || 'light')
+  const [theme, setTheme] = useState(() => (typeof document !== 'undefined' && document.documentElement.dataset.theme) || 'light')
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme

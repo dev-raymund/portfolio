@@ -5,9 +5,23 @@ import Home from './pages/Home'
 import Work from './pages/Work'
 import CaseStudy from './pages/CaseStudy'
 import { scrollToTarget, ScrollTrigger, startSmoothScroll, stopSmoothScroll } from './lib/motion'
+import { startAnalytics, trackEvent, trackPageView } from './lib/analytics'
 
 export default function App() {
   const { pathname, hash } = useLocation()
+
+  // Analytics: page views per route, plus CV downloads (any link to the PDF).
+  useEffect(() => {
+    startAnalytics()
+    const onClick = (e) => {
+      const a = e.target.closest?.('a[href$=".pdf"]')
+      if (a) trackEvent('cv_download', { link_url: a.href })
+    }
+    document.addEventListener('click', onClick)
+    return () => document.removeEventListener('click', onClick)
+  }, [])
+
+  useEffect(() => { trackPageView(pathname) }, [pathname])
 
   useEffect(() => {
     startSmoothScroll()

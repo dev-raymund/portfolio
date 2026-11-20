@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Footer from '../components/Footer'
+import { DEFAULT_TITLE } from '../data/seo'
 import Icon from '../components/Icon'
 import { SplitChars } from '../components/Split'
 import { ProjectMedia, ProjectMeta, ProjectTitle } from '../components/WorkGallery'
@@ -26,8 +27,8 @@ export default function Work() {
   const [filter, setFilter] = useState('all')
 
   useEffect(() => {
-    document.title = 'All projects | Raymund Hermoso'
-    return () => { document.title = 'Raymund Hermoso | WordPress & Shopify Developer' }
+    document.title = 'Projects | Raymund Hermoso, WordPress, Shopify & React Developer'
+    return () => { document.title = DEFAULT_TITLE }
   }, [])
 
   useLayoutEffect(() => {
