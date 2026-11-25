@@ -4,6 +4,7 @@ import Nav from './components/Nav'
 import Home from './pages/Home'
 import Work from './pages/Work'
 import CaseStudy from './pages/CaseStudy'
+import { BlogIndex, BlogPost } from './pages/Blog'
 import { scrollToTarget, ScrollTrigger, startSmoothScroll, stopSmoothScroll } from './lib/motion'
 import { startAnalytics, trackEvent } from './lib/analytics'
 
@@ -51,6 +52,8 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/work" element={<Work />} />
         <Route path="/work/:slug" element={<CaseStudy />} />
+        <Route path="/blog" element={<BlogIndex />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </>

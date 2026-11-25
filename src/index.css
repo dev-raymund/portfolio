@@ -464,3 +464,31 @@ textarea.input { min-height: 9rem; resize: vertical; padding-top: .75rem; line-h
   .mq-group { flex-wrap: wrap; row-gap: .9rem; }
   .mq { -webkit-mask-image: none; mask-image: none; }
 }
+
+/* ---------- blog ---------- */
+.post-list { list-style: none; margin: 0 0 4rem; padding: 0; border-top: 1px solid var(--line); }
+.post-card a { display: grid; gap: .55rem; padding: 1.75rem 0; border-bottom: 1px solid var(--line); color: var(--ink); }
+.post-card h2, .post-card h3 { margin: 0; font-weight: 400; font-size: clamp(1.375rem, 2.6vw, 2rem); line-height: 1.2; letter-spacing: -.02em; max-width: 46rem; transition: transform .5s var(--ease); }
+.post-card a:hover h2, .post-card a:hover h3 { transform: translateX(.4rem); }
+.post-card-meta { display: flex; gap: .5rem; margin: 0; color: var(--muted); font-size: .875rem; font-weight: 500; }
+.post-card-desc { margin: 0; color: var(--muted); max-width: 40rem; }
+.post-card-more { display: inline-flex; align-items: center; gap: .4rem; font-weight: 600; font-size: .9375rem; }
+.post-card-more .icon { transition: transform .4s var(--ease); }
+.post-card a:hover .post-card-more .icon { transform: translateX(.3rem); }
+
+.post-head { padding-bottom: 2rem; }
+.post-title { font-size: clamp(2rem, 4.4vw, 3.75rem); line-height: 1.08; max-width: 58rem; }
+.post-meta { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin: 1.5rem 0 0; color: var(--muted); font-weight: 500; font-size: .9375rem; }
+.post-meta span { display: inline-flex; align-items: center; gap: .45rem; }
+.post-body { max-width: 42rem; margin: 0 auto; padding: 2rem 0 1rem; border-top: 1px solid var(--line); font-size: 1.0625rem; line-height: 1.75; }
+.post-body > p { margin: 0 0 1.25rem; color: var(--ink); opacity: .88; }
+.post-body > h2 { margin: 2.5rem 0 .9rem; font-weight: 500; font-size: clamp(1.375rem, 2.4vw, 1.75rem); line-height: 1.25; letter-spacing: -.015em; }
+.post-body > ul { margin: 0 0 1.5rem; padding-left: 1.25rem; }
+.post-body li { margin: 0 0 .6rem; padding-left: .25rem; }
+.post-body li::marker { color: var(--muted); }
+.post-body code { padding: .1em .4em; border-radius: 6px; background: var(--chip); border: 1px solid var(--line); font-size: .9em; }
+.post-project { display: flex; gap: 1rem; align-items: flex-start; margin: 2.5rem 0 0; padding: 1.5rem; border-radius: 18px; background: var(--chip); border: 1px solid var(--line); }
+.post-project p { margin: 0 0 1rem; }
+.post-project .actions { gap: .75rem; }
+.post-more { padding: 4rem 0 0; }
+.post-more .sec-label { margin-bottom: 1rem; }

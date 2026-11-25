@@ -1,4 +1,5 @@
 import { caseStudies } from './caseStudies'
+import { posts } from './posts'
 import { profile } from './profile'
 import { projects } from './projects'
 import { tech } from './tech'
@@ -82,7 +83,46 @@ export function getRoutes() {
     }
   })
 
-  return [home, work, ...cases]
+  const blog = {
+    path: '/blog',
+    title: 'Blog | Raymund Hermoso, Web Developer',
+    description: 'Notes from building WordPress, Shopify and React sites, and building them with AI, by Raymund Hermoso.',
+    image: `${SITE}/og.jpg`,
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      url: `${SITE}/blog`,
+      name: 'Raymund Hermoso, notes from the work',
+      author: { '@id': person['@id'] },
+      isPartOf: { '@id': website['@id'] },
+      blogPost: posts.map((p) => ({ '@type': 'BlogPosting', headline: p.title, url: `${SITE}/blog/${p.slug}`, datePublished: p.date })),
+    },
+  }
+
+  const articles = posts.map((p) => ({
+    path: `/blog/${p.slug}`,
+    title: `${p.title} | Raymund Hermoso`,
+    description: p.description,
+    image: `${SITE}/og.jpg`,
+    type: 'article',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: p.title,
+      description: p.description,
+      url: `${SITE}/blog/${p.slug}`,
+      mainEntityOfPage: `${SITE}/blog/${p.slug}`,
+      image: `${SITE}/og.jpg`,
+      datePublished: p.date,
+      dateModified: p.date,
+      keywords: p.tags.join(', '),
+      author: person,
+      publisher: { '@id': person['@id'] },
+      isPartOf: { '@id': website['@id'] },
+    },
+  }))
+
+  return [home, work, ...cases, blog, ...articles]
 }
 
 export const techNames = tech.map((t) => t.name)

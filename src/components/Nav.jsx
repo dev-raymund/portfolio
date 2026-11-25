@@ -101,6 +101,7 @@ export default function Nav() {
           {LINKS.map((l) => (
             <a key={l.id} href={`/#${l.id}`} className={active === l.id ? 'active' : undefined} onClick={(e) => go(e, l.id)}>{l.label}</a>
           ))}
+          <Link to="/blog" className={pathname.startsWith('/blog') ? 'active' : undefined}>Blog</Link>
         </nav>
         <div className="tools">
           <button
@@ -136,6 +137,9 @@ export default function Nav() {
           ))}
           <Link to="/work" className="menu-link" style={{ '--i': LINKS.length }} onClick={() => setOpen(false)}>
             <Icon name="globe" />All projects
+          </Link>
+          <Link to="/blog" className="menu-link" style={{ '--i': LINKS.length + 1 }} onClick={() => setOpen(false)}>
+            <Icon name="book" />Blog
           </Link>
         </nav>
         <div className="menu-foot">
