@@ -103,7 +103,7 @@ export function getRoutes() {
     path: `/blog/${p.slug}`,
     title: `${p.title} | Raymund Hermoso`,
     description: p.description,
-    image: `${SITE}/og.jpg`,
+    image: p.image ? abs(p.image.src) : `${SITE}/og.jpg`,
     type: 'article',
     jsonLd: {
       '@context': 'https://schema.org',
@@ -112,7 +112,7 @@ export function getRoutes() {
       description: p.description,
       url: `${SITE}/blog/${p.slug}`,
       mainEntityOfPage: `${SITE}/blog/${p.slug}`,
-      image: `${SITE}/og.jpg`,
+      image: p.image ? abs(p.image.src) : `${SITE}/og.jpg`,
       datePublished: p.date,
       dateModified: p.date,
       keywords: p.tags.join(', '),

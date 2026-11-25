@@ -3,8 +3,13 @@
     { p: 'text' }            paragraph (wrap code in `backticks`)
     { h: 'text' }            subheading
     { list: ['a', 'b'] }     bullet list
+  image is the featured image: a screenshot of the project the post is about.
   Add a post here and it gets its own page, sitemap entry and structured data.
 */
+import proluxImg from '../assets/work/proluxpainting.jpg'
+import alexroseImg from '../assets/work/case/alexrose-designer.jpg'
+import leaftImg from '../assets/work/case/leaft-hydrogen-home.jpg'
+
 export const posts = [
   {
     slug: 'vibe-coded-html-to-working-website',
@@ -13,12 +18,14 @@ export const posts = [
     date: '2026-11-25',
     tags: ['PHP', 'AI', 'Web development'],
     project: { title: 'ProLux Painting', url: 'https://www.proluxpainting.com.au/' },
+    image: { src: proluxImg, alt: 'The ProLux Painting homepage', caption: 'ProLux Painting, proluxpainting.com.au' },
     body: [
       { p: 'ProLux Painting, a painting company in Sydney, came to me with a finished-looking website. The client had built it themselves with an AI tool: 25 pages of HTML covering their services, projects and the suburbs they work in. It looked ready. My job was to make it actually work.' },
       { p: 'This is becoming a common kind of project. More business owners are “vibe coding” a site from a prompt, and the result often looks good in a browser preview. Here’s what was missing underneath, and what I changed.' },
       { h: 'The forms didn’t send anything' },
       { p: 'The quote form had every field you’d expect: name, phone, email, suburb, project details. When you pressed submit, the form disappeared and a thank-you message appeared. The generated code even had a comment saying it was a front-end demo, to be connected to a CRM or email handler later.' },
-      { p: 'So every quote request would have looked successful to the visitor and gone nowhere. For a trade business that lives on enquiries, that’s the most expensive bug a website can have, and nothing on the page shows it. I connected the forms so each enquiry is actually delivered, and tested them end to end.' },
+      { p: 'So every quote request would have looked successful to the visitor and gone nowhere. For a trade business that lives on enquiries, that’s the most expensive bug a website can have, and nothing on the page shows it.' },
+      { p: 'The client asked for their own external form to be embedded instead, so I replaced the demo forms with that embed. Enquiries now go wherever their form service sends them, the client can change the fields without a developer, and there’s no form code on the site to maintain. I checked the embed on every page it appears on, on desktop and mobile.' },
       { h: 'Every page had its own copy of the header and footer' },
       { p: 'Each HTML file carried a full copy of the navigation and footer. That works until the business adds a service or changes a phone number, and then someone has to edit 25 files and hope they don’t miss one.' },
       { p: 'I moved the pages to PHP and pulled the header and footer into shared files, included on every page. Now a menu change is one edit, and every page stays in step.' },
@@ -29,7 +36,7 @@ export const posts = [
       { h: 'The checklist I use now' },
       { p: 'When someone hands me an AI-built site, these are the first things I check, because they’re the ones a browser preview hides:' },
       { list: [
-        'Do the forms send real emails, to the right inbox, and is there spam protection?',
+        'Do the forms actually deliver, to the right place, with spam protection? If the business already uses a form service, embedding it is often simpler than building one.',
         'Are the header, footer and menus shared, or copied into every page?',
         'Does every link work from every page, on desktop and mobile?',
         'Are the URLs clean, and will they survive a change of technology?',
@@ -47,6 +54,7 @@ export const posts = [
     date: '2026-11-25',
     tags: ['WordPress', 'AI', 'Claude Code'],
     project: { title: 'Alex Rose', url: 'https://alexrose.uk/', caseStudy: 'alex-rose' },
+    image: { src: alexroseImg, alt: 'The Alex Rose Design Your Jacket page: cloth collections on the left, a 3D jacket preview on the right', caption: 'Design Your Jacket on alexrose.uk, a custom WordPress theme built with Claude Code' },
     body: [
       { p: 'Several of my recent WordPress themes were built with Claude Code, an AI coding assistant that works directly in the project. Two examples are on my portfolio: Sounds Like Sydney, a music news and events site, and Alex Rose, a made-to-measure tailor with a 3D fitting room and online checkout.' },
       { p: 'People tend to imagine either “the AI built it” or “the AI is a toy”. Neither matches how it actually goes. Here’s the workflow.' },
@@ -78,6 +86,7 @@ export const posts = [
     date: '2026-11-25',
     tags: ['Shopify', 'Hydrogen', 'React'],
     project: { title: 'Leaft Blade', caseStudy: 'leaft-blade-hydrogen' },
+    image: { src: leaftImg, alt: 'Homepage of the Leaft Blade Hydrogen storefront', caption: 'The Leaft Blade Hydrogen storefront, from the Internet Archive’s July 2025 copy' },
     body: [
       { p: 'Leaft Blade sells a leaf-protein drink for athletes. When I joined, its store was a custom Shopify Hydrogen storefront, built in React, and I took it over as the only developer. I redesigned it, added subscriptions, rebuilt the cart and built custom sections. Later, the store moved to a standard Shopify theme. Both were the right call at the time.' },
       { h: 'What Hydrogen is' },

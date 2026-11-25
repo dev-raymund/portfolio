@@ -52,12 +52,15 @@ export function BlogIndex() {
       <div className="wrap">
         <ul className="post-list">
           {posts.map((p) => (
-            <li className="post-card" key={p.slug}>
+            <li className="post-card has-img" key={p.slug}>
               <Link to={`/blog/${p.slug}`}>
+                {p.image && <span className="post-thumb"><img src={p.image.src} alt="" loading="lazy" decoding="async" /></span>}
+                <div className="post-card-text">
                 <p className="post-card-meta"><time dateTime={p.date}>{fmtDate(p.date)}</time><span aria-hidden="true">·</span>{readMins(p)} min read</p>
                 <h2>{p.title}</h2>
                 <p className="post-card-desc">{p.description}</p>
                 <span className="post-card-more">Read the post<Icon name="arrowRight" /></span>
+                </div>
               </Link>
             </li>
           ))}
@@ -101,6 +104,15 @@ export function BlogPost() {
           </div>
         </header>
 
+        {post.image && (
+          <div className="wrap">
+            <figure className="post-cover">
+              <div className="post-cover-img"><img src={post.image.src} alt={post.image.alt} decoding="async" /></div>
+              {post.image.caption && <figcaption>{post.image.caption}</figcaption>}
+            </figure>
+          </div>
+        )}
+
         <div className="wrap">
           <div className="post-body">
             {post.body.map((b, i) => {
@@ -131,11 +143,14 @@ export function BlogPost() {
             <h2 className="sec-label" id="more-posts"><Icon name="book" />More posts</h2>
             <ul className="post-list">
               {others.map((p) => (
-                <li className="post-card" key={p.slug}>
+                <li className="post-card has-img" key={p.slug}>
                   <Link to={`/blog/${p.slug}`}>
-                    <h3>{p.title}</h3>
-                    <p className="post-card-desc">{p.description}</p>
-                    <span className="post-card-more">Read the post<Icon name="arrowRight" /></span>
+                    {p.image && <span className="post-thumb"><img src={p.image.src} alt="" loading="lazy" decoding="async" /></span>}
+                    <div className="post-card-text">
+                      <h3>{p.title}</h3>
+                      <p className="post-card-desc">{p.description}</p>
+                      <span className="post-card-more">Read the post<Icon name="arrowRight" /></span>
+                    </div>
                   </Link>
                 </li>
               ))}
