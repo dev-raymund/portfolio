@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components -- build-time entry, not a component module */
 import { StrictMode } from 'react'
 import { renderToString } from 'react-dom/server'
-import { StaticRouter } from 'react-router-dom/server'
+import { StaticRouter } from 'react-router-dom'
 import App from './App.jsx'
 
 export { getRoutes, SITE } from './data/seo'
