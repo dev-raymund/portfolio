@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Icon from './Icon'
-import { profile, web3formsKey } from '../data/profile'
+import { profile } from '../data/profile'
 import { trackEvent } from '../lib/analytics'
 
 const TOPICS = [
@@ -44,31 +44,25 @@ export default function ContactForm() {
     }
     const topicLabel = TOPICS.find((t) => t.id === topic).label
 
-    if (!web3formsKey) {
+    // Opens the visitor's email app with the message filled in. Used when the endpoint isn't set up yet.
+    const openEmailApp = () => {
       const subject = encodeURIComponent(`${topicLabel}: message from ${values.name}`)
       const body = encodeURIComponent(`${values.message}\n\n${values.name}\n${values.email}`)
       window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`
       trackEvent('generate_lead', { method: 'email_app', topic })
       setStatus('mailto')
-      return
     }
 
     setStatus('sending')
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: web3formsKey,
-          subject: `${topicLabel}: new message from ${values.name}`,
-          from_name: 'Portfolio contact form',
-          replyto: values.email,
-          topic: topicLabel,
-          ...values,
-        }),
+        body: JSON.stringify({ topic: topicLabel, botcheck: data.get('botcheck') || '', ...values }),
       })
+      if (res.status === 503 || res.status === 404) return openEmailApp()
       const json = await res.json().catch(() => ({}))
-      if (!res.ok || json.success === false) throw new Error(json.message || 'Request failed')
+      if (!res.ok || !json.ok) throw new Error(json.error || 'Request failed')
       setSent({ name: values.name, email: values.email })
       trackEvent('generate_lead', { method: 'form', topic })
       setStatus('sent')

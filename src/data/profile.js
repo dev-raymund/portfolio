@@ -24,6 +24,3 @@ export const profile = {
   ],
 }
 
-// Free key from https://web3forms.com, set as VITE_WEB3FORMS_KEY in Vercel.
-// Without it, the contact form opens the visitor's email app instead.
-export const web3formsKey = import.meta.env.VITE_WEB3FORMS_KEY || ''

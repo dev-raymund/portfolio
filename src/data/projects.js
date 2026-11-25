@@ -33,10 +33,10 @@ import leaftHydrogen from '../assets/work/lb-hydrogen.jpg'
   position: optional CSS object-position for the screenshot
 */
 export const projects = [
-  { title: 'Sounds Like Sydney', url: 'https://soundslikesydney.com.au/', platform: 'wordpress', stack: 'WordPress', summary: "News and events for Sydney's community music scene.", image: soundslikesydney, featured: true, ai: true },
+  { title: 'Sounds Like Sydney', url: 'https://soundslikesydney.com.au/', platform: 'wordpress', stack: 'WordPress, custom theme', summary: "Sydney's community music news and events, on a custom WordPress theme I built with Claude Code from the client's design references.", image: soundslikesydney, featured: true, ai: true },
   { title: 'Counties Badminton Pro Shop', url: 'https://countiesbadmintonproshop.co.nz/', platform: 'shopify', stack: 'Shopify', summary: 'Badminton gear and a stringing lab for Counties Manukau, New Zealand.', image: countiesbadminton, featured: true, ai: true },
   { title: 'Alex Rose', url: 'https://alexrose.uk/', platform: 'wordpress', stack: 'WordPress', summary: 'Made-to-measure jackets from a Leeds family tailor, since 1945.', image: alexrose, featured: true, ai: true, caseStudy: 'alex-rose' },
-  { title: 'ProLux Painting', url: 'https://www.proluxpainting.com.au/', platform: '', stack: '', summary: 'Residential and commercial painters in Sydney.', image: proluxpainting, featured: true, ai: true },
+  { title: 'ProLux Painting', url: 'https://www.proluxpainting.com.au/', platform: 'custom', stack: 'HTML, PHP', summary: 'Painters in Sydney. The client vibe-coded the HTML; I made it work: forms, navigation, shared header and footer, clean URLs.', image: proluxpainting, featured: true, ai: true },
   { title: 'Alexander Rose', url: 'https://www.alexander-rose.net/', platform: 'custom', stack: 'React, Express (Replit Agent)', summary: 'Made-to-measure suits from a tailor in Rodley, Leeds.', image: alexanderRose, ai: true, react: true },
   { title: 'Morgan Property Management', url: 'https://www.mpm.house/', platform: 'custom', stack: 'React, Express (Replit Agent)', summary: 'Two restored holiday cottages in Shropshire.', image: mpmHouse, ai: true, react: true },
   { title: 'Multihull Central', url: 'https://www.multihullcentral.com/', platform: 'wordpress', stack: 'WordPress, custom ACF theme', summary: 'Catamaran sales with search filters, events and a service centre.', image: mhc, position: 'left top', featured: true },
